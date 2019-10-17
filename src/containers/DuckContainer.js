@@ -1,14 +1,17 @@
-import React from 'react';
-import DuckList from '../components/DuckList'
+import React from "react";
+import DuckList from "../components/DuckList";
+import DuckDetails from "../components/DuckDetails";
 
-const DuckContainer = ({ ducks, currentDuck}) => {
-
-    return (
-        <div>
-            {currentDuck ? "current duck found!" : <DuckList {...{ducks}}/>}
-            
-        </div>
-    );
-}
+const DuckContainer = ({ ducks, currentDuck }) => {
+  return (
+    <div>
+      {currentDuck ? (
+        <DuckDetails {...{ ...currentDuck }} />
+      ) : (
+        <DuckList {...{ ducks }} />
+      )}
+    </div>
+  );
+};
 
 export default DuckContainer;

@@ -1,13 +1,14 @@
-import React from 'react';
+import React from "react";
+import Duck from "./Duck";
 
-const DuckList = (props) => {
-
-
-        return (
-            <div>
-                I'm the DL
-            </div>
-        );
-}
+const DuckList = ({ ducks }) => {
+  return (
+    <ul>
+      {ducks.map(duck => {
+        return <Duck {...duck} />;
+      })}
+    </ul>
+  );
+};
 
 export default DuckList;
