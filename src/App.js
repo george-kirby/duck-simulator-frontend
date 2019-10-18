@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./stylesheets/App.css";
 import DuckContainer from "./containers/DuckContainer";
 import API from "./adapters/API";
 import AreaContainer from "./containers/AreaContainer"
