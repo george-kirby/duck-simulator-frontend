@@ -2,13 +2,16 @@ import React from "react";
 import AreaList from "../components/AreaList";
 import AreaDetails from "../components/AreaDetails";
 
-const AreaContainer = ({ areas, currentArea }) => {
+const AreaContainer = ({ areas, currentArea, setCurrentArea }) => {
   return (
     <div>
       {currentArea ? (
-        <AreaDetails {...{ ...currentArea }} />
+        <AreaDetails
+          removeCurrentArea={() => setCurrentArea(null)}
+          {...{ ...currentArea }}
+        />
       ) : (
-        <AreaList {...{ areas }} />
+        <AreaList {...{ areas, setCurrentArea }} />
       )}
     </div>
   );

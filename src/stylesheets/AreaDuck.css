@@ -1,15 +1,13 @@
-.area-duck {
+.duck-container {
   /* background-color: blue; */
-  margin: auto;
-  width: 68%;
-  margin-top: 20%;
-  margin-left: 10%;
-  display: flex;
+  margin: 11% 3%;
+  overflow: auto;
 }
 
-.duck-container {
-  background-color: #f1f1f1;
-  margin: 11% 3%;
-  padding: 5%;
-  overflow: auto;
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: initial;
 }
