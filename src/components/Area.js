@@ -1,8 +1,8 @@
 import React from "react";
 
-const Area = ({ name, image_url }) => {
+const Area = ({ name, image_url, selectArea }) => {
   return (
-    <li>
+    <li onClick={selectArea}>
       {image_url !== "" ? (
         <img src={require(`../images/${image_url}`)} width="20%" alt={name} />
       ) : (

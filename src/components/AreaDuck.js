@@ -1,15 +1,29 @@
-import React from "react";
-import "../stylesheets/AreaDuck.css";
+import React, { useState } from "react"
+import "../stylesheets/AreaDuck.css"
 
-const AreaDuck = props => {
+const AreaDuck = ({ name, image_url }) => {
+  const [duckNameClass, setDuckNameClass] = useState("hidden")
+
+  const handleMouseOver = () => {
+    setDuckNameClass("visible")
+  }
+
+  const handleMouseLeave = () => {
+    setDuckNameClass("hidden")
+  }
+
   return (
-    <div className="area-duck flex-container">
-      <div className="duck-container">Duck 1</div>
-      <div className="duck-container">Duck 2</div>
-      <div className="duck-container">Duck 3</div>
-      <div className="duck-container">Duck 4</div>
+    <div className="duck-container">
+      <div className={duckNameClass}>{name}</div>
+      <img
+        src={require(`../images/${image_url}`)}
+        alt={name}
+        width="90%"
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+      ></img>
     </div>
-  );
-};
+  )
+}
 
-export default AreaDuck;
+export default AreaDuck

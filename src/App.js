@@ -8,72 +8,8 @@ import Helpers from "./helpers/Helpers"
 function App() {
   const [ducks, setDucks] = useState([])
   const [areas, setAreas] = useState([])
-  // const [currentDuck, setCurrentDuck] = useState({
-  //   id: 43,
-  //   name: "Oli",
-  //   gender: "male",
-  //   alive: true,
-  //   awake: true,
-  //   hunger: 0,
-  //   mood: "happily fed",
-  //   image_url: "duck-template.jpg",
-  //   area: {
-  //     name: "Flatiron Pond"
-  //   },
-  //   user: {
-  //     username: "geok"
-  //   }
-  // });
-
-  let updatedDuck = null
-
-  // const [currentArea, setCurrentArea] = useState({
-  //   id: 7,
-  //   name: "Flatiron Pond",
-  //   max_capacity: 10,
-  //   image_url: "area-template.png",
-  //   ducks: [
-  //     {
-  //       id: 32,
-  //       name: "Joaquin",
-  //       image_url: "duck-template.jpg"
-  //     },
-  //     {
-  //       id: 33,
-  //       name: "Oli",
-  //       image_url: "duck-template.jpg"
-  //     },
-  //     {
-  //       id: 37,
-  //       name: "Polly",
-  //       image_url: "duck-template.jpg"
-  //     },
-  //     {
-  //       id: 38,
-  //       name: "Angie",
-  //       image_url: "duck-template.jpg"
-  //     },
-  //     {
-  //       id: 39,
-  //       name: "Sohaib",
-  //       image_url: "duck-template.jpg"
-  //     },
-  //     {
-  //       id: 40,
-  //       name: "Ian",
-  //       image_url: "duck-template.jpg"
-  //     },
-  //     {
-  //       id: 41,
-  //       name: "Will",
-  //       image_url: ""
-  //     }
-  //   ]
-  // });
-
   const [currentDuck, setCurrentDuck] = useState(null)
   const [currentArea, setCurrentArea] = useState(null)
-  // const [updateNeeded, setUpdateNeeded] = useState(null);
 
   useEffect(() => {
     API.getDucks().then(ducks => {
@@ -106,7 +42,7 @@ function App() {
       console.log(`silence... :(`)
     }
     let newHunger = Helpers.increaseToMax10(duck.hunger, 2)
-    API.patchDuck(duck, {hunger: newHunger}).then(setCurrentDuck)
+    API.patchDuck(duck, { hunger: newHunger }).then(setCurrentDuck)
   }
 
   const moveArea = (duck, area) => {
@@ -135,7 +71,7 @@ function App() {
         />
       </div>
       <div className="split right">
-        <AreaContainer {...{ areas, currentArea }} />
+        <AreaContainer {...{ areas, currentArea, setCurrentArea }} />
       </div>
     </div>
   )
