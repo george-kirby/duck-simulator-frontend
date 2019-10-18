@@ -16,7 +16,8 @@ const AreaDetails = ({ name, image_url}) => {
   // const path = "../images/area-template.png"
   const path = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Staw_naturalny.JPG/360px-Staw_naturalny.JPG"
 
-  const divStyle = {backgroundImage: 'url('+path+')'}
+  const divStyle = {backgroundImage: 'url('+path+')',
+  backgroundSize: "100%"}
 
   return <div style={divStyle}>
     {name}

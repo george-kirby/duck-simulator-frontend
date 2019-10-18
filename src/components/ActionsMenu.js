@@ -1,11 +1,11 @@
 import React from "react";
 
-const ActionsMenu = props => {
+const ActionsMenu = ({feedDuck, takeDuckForSwim}) => {
   return (
     <div>
-        <button>Feed</button>
+        <button onClick={feedDuck}>Feed</button>
         <button>Tuck In</button>
-        <button>Take for a swim</button>
+        <button onClick={takeDuckForSwim}>Take for a swim</button>
         <button>Squeak</button>
         <button>KILL</button>
     </div>
