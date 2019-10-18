@@ -7,20 +7,20 @@ import AreaContainer from "./containers/AreaContainer";
 function App() {
   const [ducks, setDucks] = useState([]);
   const [areas, setAreas] = useState([]);
-  const [currentDuck, setCurrentDuck] = useState({
-    id: 22,
-    name: "Joaquin",
-    gender: "male",
-    alive: true,
-    awake: true,
-    hunger: 0,
-    mood: "happy",
-    image_url: "duck-template.jpg",
-    user_id: 7,
-    area_id: 5,
-    created_at: "2019-10-17T12:15:50.160Z",
-    updated_at: "2019-10-17T12:15:50.160Z"
-  });
+  // const [currentDuck, setCurrentDuck] = useState({
+  //   id: 42,
+  //   name: "Joaquin",
+  //   gender: "male",
+  //   alive: true,
+  //   awake: true,
+  //   hunger: 0,
+  //   mood: "happy",
+  //   image_url: "duck-template.jpg",
+  //   user_id: 7,
+  //   area_id: 5,
+  //   created_at: "2019-10-17T12:15:50.160Z",
+  //   updated_at: "2019-10-17T12:15:50.160Z"
+  // });
   const [currentArea, setCurrentArea] = useState({
     id: 7,
     name: "Flatiron Pond",
@@ -65,7 +65,7 @@ function App() {
     ]
   });
 
-  // const [currentDuck, setCurrentDuck] = useState(null)
+  const [currentDuck, setCurrentDuck] = useState(null)
   // const [currentArea, setCurrentArea] = useState(null);
 
   useEffect(() => {
@@ -73,13 +73,39 @@ function App() {
     API.getAreas().then(setAreas);
   }, []);
 
+  const feedDuck = duck => {
+    console.log(`${duck.name} ate some tasty bread`)
+    API.patchDuck(duck, {mood: "happily fed", hunger: 0}).then(setCurrentDuck)
+  }
+  
+  const takeDuckForSwim = duck => {
+    console.log(`${duck.name} went for a swim`)
+    API.patchDuck(duck, {mood: "swimming happily", hunger: duck.hunger + 5}).then(setCurrentDuck)
+  }
+  
+  const squeakDuck = duck => {
+    // duck emits happy/sad/angry noise depending on mood
+  }
+  
+  const moveArea = (duck , area)=> {
+    duck.area = area
+  }
+
+  const tuckInDuck = duck => {
+    duck.awake = false
+  }
+
+  const killDuck = duck => {
+    duck.alive = false
+  }
+
   return (
     <div>
       <div className="split left">
-        <DuckContainer {...{ ducks, currentDuck }} />
+        <DuckContainer {...{ ducks, currentDuck, setCurrentDuck }} feedDuck={() => feedDuck(currentDuck)} takeDuckForSwim={() => takeDuckForSwim(currentDuck)} />
       </div>
       <div className="split right">
-        <AreaContainer {...{ areas, currentArea }} />
+        <AreaContainer {...{ areas, currentArea }}   />
       </div>
     </div>
   );
