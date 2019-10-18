@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./stylesheets/App.css";
 import DuckContainer from "./containers/DuckContainer";
 import API from "./adapters/API";
-import AreaContainer from "./containers/AreaContainer"
+import AreaContainer from "./containers/AreaContainer";
 
 function App() {
   const [ducks, setDucks] = useState([]);
@@ -22,48 +22,48 @@ function App() {
     updated_at: "2019-10-17T12:15:50.160Z"
   });
   const [currentArea, setCurrentArea] = useState({
-    "id": 7,
-    "name": "Flatiron Pond",
-    "max_capacity": 10,
-    "image_url": "area-template.png",
-    "ducks": [
+    id: 7,
+    name: "Flatiron Pond",
+    max_capacity: 10,
+    image_url: "area-template.png",
+    ducks: [
       {
-        "id": 32,
-        "name": "Joaquin",
-        "image_url": "duck-template.jpg"
+        id: 32,
+        name: "Joaquin",
+        image_url: "duck-template.jpg"
       },
       {
-        "id": 33,
-        "name": "Oli",
-        "image_url": "duck-template.jpg"
+        id: 33,
+        name: "Oli",
+        image_url: "duck-template.jpg"
       },
       {
-        "id": 37,
-        "name": "Polly",
-        "image_url": "duck-template.jpg"
+        id: 37,
+        name: "Polly",
+        image_url: "duck-template.jpg"
       },
       {
-        "id": 38,
-        "name": "Angie",
-        "image_url": "duck-template.jpg"
+        id: 38,
+        name: "Angie",
+        image_url: "duck-template.jpg"
       },
       {
-        "id": 39,
-        "name": "Sohaib",
-        "image_url": "duck-template.jpg"
+        id: 39,
+        name: "Sohaib",
+        image_url: "duck-template.jpg"
       },
       {
-        "id": 40,
-        "name": "Ian",
-        "image_url": "duck-template.jpg"
+        id: 40,
+        name: "Ian",
+        image_url: "duck-template.jpg"
       },
       {
-        "id": 41,
-        "name": "Will",
-        "image_url": ""
+        id: 41,
+        name: "Will",
+        image_url: ""
       }
     ]
-  },);
+  });
 
   // const [currentDuck, setCurrentDuck] = useState(null)
   // const [currentArea, setCurrentArea] = useState(null);
@@ -75,8 +75,12 @@ function App() {
 
   return (
     <div>
-      <DuckContainer {...{ ducks, currentDuck }} />
-      <AreaContainer {...{ areas, currentArea }}   />
+      <div className="split left">
+        <DuckContainer {...{ ducks, currentDuck }} />
+      </div>
+      <div className="split right">
+        <AreaContainer {...{ areas, currentArea }} />
+      </div>
     </div>
   );
 }
