@@ -4,7 +4,13 @@ import "../stylesheets/AreaDetails.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
-const AreaDetails = ({ name, image_url, removeCurrentArea, ducks }) => {
+const AreaDetails = ({
+  name,
+  image_url,
+  removeCurrentArea,
+  ducks,
+  handleClickAreaDuck
+}) => {
   const backgroundImg = Helpers.displayImage(
     "areas",
     Images.areas.flatironPond,
@@ -21,7 +27,7 @@ const AreaDetails = ({ name, image_url, removeCurrentArea, ducks }) => {
       {/* <div className="area-details"> */}
       <h1>{name}</h1>
       <button onClick={removeCurrentArea}>Back to Area List</button>
-      <AreaDuckList {...{ ducks }} />
+      <AreaDuckList {...{ ducks, handleClickAreaDuck }} />
     </div>
   )
 }
