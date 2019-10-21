@@ -3,7 +3,7 @@ import "../stylesheets/AreaDuck.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
-const AreaDuck = ({ name, image_url }) => {
+const AreaDuck = ({ id, name, image_url, handleClickAreaDuck }) => {
   const [duckNameClass, setDuckNameClass] = useState("hidden")
 
   const displayImage = Helpers.displayImage(
@@ -29,6 +29,7 @@ const AreaDuck = ({ name, image_url }) => {
         width="90%"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
+        onClick={() => handleClickAreaDuck(id)}
       ></img>
     </div>
   )

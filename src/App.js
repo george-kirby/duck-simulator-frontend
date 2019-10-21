@@ -79,6 +79,11 @@ function App() {
     }
   }
 
+  const handleClickAreaDuck = duckId => {
+    let duckSelected = ducks.find(duck => duck.id === duckId)
+    setCurrentDuck(duckSelected)
+  }
+
   return (
     <div>
       <div className="split left">
@@ -92,7 +97,9 @@ function App() {
         />
       </div>
       <div className="split right">
-        <AreaContainer {...{ areas, currentArea, setCurrentArea }} />
+        <AreaContainer
+          {...{ areas, currentArea, setCurrentArea, handleClickAreaDuck }}
+        />
       </div>
     </div>
   )
