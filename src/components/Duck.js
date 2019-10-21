@@ -3,11 +3,11 @@ import "../stylesheets/Duck.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
-const Duck = ({ name, mood, selectDuck }) => {
+const Duck = ({ name, mood, color, selectDuck }) => {
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standardDuck,
-    Images.ducks[mood]
+    `${color}-${Images.ducks[mood]}`
   )
 
   return (

@@ -44,9 +44,9 @@ const Main = () => {
     API.patchDuck(duck, { hunger: newHunger, mood }).then(setCurrentDuck)
   }
 
-  const moveArea = (duck, area) => {
-    duck.area = area
-  }
+  // const moveArea = (duck, area) => {
+  //   duck.area = area
+  // }
 
   const sleepChange = duck => {
     let duckData = {}

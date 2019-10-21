@@ -8,7 +8,8 @@ function App() {
   return (
     <Router>
       <nav className="navbar">
-        <Link to="/">HOME</Link> | <Link to="/add-duck">ADD DUCK</Link> |{" "}
+        <Link to="/">HOME</Link>
+        <Link to="/add-duck">ADD DUCK</Link>
         <Link to="/login">LOG OUT</Link>
       </nav>
       <Switch>

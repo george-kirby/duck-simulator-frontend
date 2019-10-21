@@ -1,12 +1,11 @@
 import React from "react"
 import Helpers from "../helpers/Helpers"
-import Images from "../helpers/ImagePaths"
 
 const Area = ({ name, image_url, selectArea }) => {
   const displayImage = Helpers.displayImage(
     "areas",
-    Images.areas.flatironPond,
-    Images.areas.flatironPond
+    "flatiron-pond.png",
+    image_url
   )
 
   return (

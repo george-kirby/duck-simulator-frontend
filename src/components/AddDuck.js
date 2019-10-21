@@ -61,7 +61,9 @@ const AddDuck = () => {
           Area
           <select value={area} onChange={handleAreaChange}>
             {areas.map(area => (
-              <option value={area.id}>{area.name}</option>
+              <option key={area.id} value={area.id}>
+                {area.name}
+              </option>
             ))}
           </select>
         </label>

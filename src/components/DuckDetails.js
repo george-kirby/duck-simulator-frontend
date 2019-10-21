@@ -11,6 +11,7 @@ const DuckDetails = ({
   awake,
   hunger,
   mood,
+  color,
   user,
   area,
   feedDuck,
@@ -23,7 +24,7 @@ const DuckDetails = ({
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standard,
-    Images.ducks[mood]
+    `${color}-${Images.ducks[mood]}`
   )
 
   return (
