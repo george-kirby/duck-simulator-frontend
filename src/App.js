@@ -58,11 +58,20 @@ function App() {
     API.patchDuck(duck, { alive: false }).then(setCurrentDuck)
   }
 
+  const handleDuckSelection = duck => {
+    setCurrentDuck(duck)
+    if (duck === null) {setCurrentArea(null)}
+    else {
+      let selectedArea = areas.find(area => area.id === duck.area.id)
+      setCurrentArea(selectedArea)
+    }
+  }
+
   return (
     <div>
       <div className="split left">
         <DuckContainer
-          {...{ ducks, currentDuck, setCurrentDuck }}
+          {...{ ducks, currentDuck, handleDuckSelection }}
           feedDuck={() => feedDuck(currentDuck)}
           takeDuckForSwim={() => takeDuckForSwim(currentDuck)}
           sleepChange={() => sleepChange(currentDuck)}

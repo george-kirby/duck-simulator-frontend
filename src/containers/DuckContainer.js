@@ -9,17 +9,17 @@ const DuckContainer = ({
   takeDuckForSwim,
   sleepChange,
   squeakDuck, killDuck, 
-  setCurrentDuck
+  handleDuckSelection
 }) => {
   return (
     <div>
       {currentDuck ? (
         <DuckDetails
           {...{ ...currentDuck, feedDuck, takeDuckForSwim, sleepChange, squeakDuck, killDuck }}
-          removeCurrentDuck={() => setCurrentDuck(null)}
+          removeCurrentDuck={() => handleDuckSelection(null)}
         />
       ) : (
-        <DuckList {...{ ducks, setCurrentDuck }} />
+        <DuckList {...{ ducks, handleDuckSelection }} />
       )}
     </div>
   );

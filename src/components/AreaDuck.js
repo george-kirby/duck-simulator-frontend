@@ -16,7 +16,7 @@ const AreaDuck = ({ name, image_url }) => {
     <div className="duck-container">
       <div className={duckNameClass}>{name}</div>
       <img
-        src={require(`../images/${image_url}`)}
+        // src={require(`../images/${image_url}`)}
         alt={name}
         width="90%"
         onMouseOver={handleMouseOver}
