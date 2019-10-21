@@ -4,10 +4,10 @@ const increaseToMax10 = (value, increment) => {
     return newValue
 }
 
-const displayImage = (defaultImage, image) => {
+const displayImage = (folder, defaultImage, image) => {
     return image === ""
-      ? require(`../images/${defaultImage}`)
-      : require(`../images/${image}`)
+      ? require(`../images/${folder}/${defaultImage}`)
+      : require(`../images/${folder}/${image}`)
   }
 
 export default { increaseToMax10, displayImage }

@@ -1,8 +1,8 @@
-import React from "react";
-import ActionsMenu from "../components/ActionsMenu";
-import Helpers from "../helpers/Helpers";
-import "../stylesheets/DuckDetails.css";
-
+import React from "react"
+import ActionsMenu from "../components/ActionsMenu"
+import Helpers from "../helpers/Helpers"
+import "../stylesheets/DuckDetails.css"
+import ImagePaths from "../helpers/ImagePaths"
 
 const DuckDetails = ({
   name,
@@ -16,24 +16,35 @@ const DuckDetails = ({
   area,
   feedDuck,
   takeDuckForSwim,
-  sleepChange, 
-  squeakDuck, killDuck,
+  sleepChange,
+  squeakDuck,
+  killDuck,
   removeCurrentDuck
 }) => {
+  const moodDisplay = () => {
+    if (!alive) return "Dead"
+    if (!awake) return "Sleeping"
+    return mood
+  }
 
-const moodDisplay = () => {
-  if (!alive) return "Dead"
-  if (!awake) return "Sleeping"
-  return mood
-}
+  const consciousnessDisplay = () => {
+    if (!alive) return "Dead"
+    if (!awake) return "Asleep"
+    return "Awake"
+  }
 
-const consciousnessDisplay = () => {
-  if (!alive) return "Dead"
-  if (!awake) return "Asleep"
-  return "Awake"
-}
-
-const failsafeImage = Helpers.displayImage("duck-template.jpg", image_url)
+  const failsafeImage =
+    hunger > 9
+      ? Helpers.displayImage(
+          "duck-drawings",
+          ImagePaths.standardDuck,
+          ImagePaths.hangryDuck
+        )
+      : Helpers.displayImage(
+          "duck-drawings",
+          ImagePaths.standardDuck,
+          ImagePaths.standardDuck
+        )
 
   return (
     <div id="duck-details">
@@ -52,14 +63,25 @@ const failsafeImage = Helpers.displayImage("duck-template.jpg", image_url)
         <p className={hunger > 9 ? "red" : "normal"}>Hunger: {hunger}</p>
         <p>Owner: {user.username}</p>
         <p>Area: {area.name}</p>
-        <img src={failsafeImage} alt={name} width="20%" />
+        <img src={failsafeImage} alt={name} width="50%" />
       </div>
       <div>
         ACTION MENU
-        <ActionsMenu {...{ alive, awake, hunger, feedDuck, takeDuckForSwim, sleepChange, squeakDuck, killDuck }} />
+        <ActionsMenu
+          {...{
+            alive,
+            awake,
+            hunger,
+            feedDuck,
+            takeDuckForSwim,
+            sleepChange,
+            squeakDuck,
+            killDuck
+          }}
+        />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DuckDetails;
+export default DuckDetails
