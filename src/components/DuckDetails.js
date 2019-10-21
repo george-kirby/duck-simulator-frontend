@@ -11,7 +11,7 @@ const DuckDetails = ({
   awake,
   hunger,
   mood,
-  image_url,
+  color,
   user,
   area,
   feedDuck,
@@ -21,8 +21,11 @@ const DuckDetails = ({
   killDuck,
   removeCurrentDuck
 }) => {
-
-  const displayImage = Helpers.displayImage("duck-drawings", Images.ducks.standard, Images.ducks[mood])
+  const displayImage = Helpers.displayImage(
+    "duck-drawings",
+    Images.ducks.standard,
+    `${color}-${Images.ducks[mood]}`
+  )
 
   return (
     <div id="duck-details">

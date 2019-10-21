@@ -2,7 +2,6 @@ import React from "react"
 import AreaDuckList from "../containers/AreaDuckList"
 import "../stylesheets/AreaDetails.css"
 import Helpers from "../helpers/Helpers"
-import Images from "../helpers/ImagePaths"
 
 const AreaDetails = ({
   name,
@@ -13,8 +12,8 @@ const AreaDetails = ({
 }) => {
   const backgroundImg = Helpers.displayImage(
     "areas",
-    Images.areas.flatironPond,
-    Images.areas.flatironPond
+    "flatiron-pond.png",
+    image_url
   )
 
   const divStyle = {
