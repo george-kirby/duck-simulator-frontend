@@ -4,8 +4,11 @@ import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
 const Duck = ({ name, image_url, mood, selectDuck }) => {
-
-  const displayImage = Helpers.displayImage("duck-drawings", Images.ducks.standardDuck, Images.ducks[mood])
+  const displayImage = Helpers.displayImage(
+    "duck-drawings",
+    Images.ducks.standardDuck,
+    Images.ducks[mood]
+  )
 
   return (
     <li className="duck-li" onClick={selectDuck}>
