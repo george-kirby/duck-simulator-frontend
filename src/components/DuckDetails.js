@@ -22,7 +22,7 @@ const DuckDetails = ({
   removeCurrentDuck
 }) => {
 
-  const displayImage = Helpers.displayImage("duck-drawings", ImagePaths.standard, ImagePaths[mood])
+  const displayImage = Helpers.displayImage("duck-drawings", Images.ducks.standard, Images.ducks[mood])
 
   return (
     <div id="duck-details">

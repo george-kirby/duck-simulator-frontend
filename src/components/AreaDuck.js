@@ -8,8 +8,8 @@ const AreaDuck = ({ name, image_url }) => {
 
   const displayImage = Helpers.displayImage(
     "duck-drawings",
-    Images.ducks.standardDuck,
-    Images.ducks.standardDuck
+    Images.ducks.standard,
+    Images.ducks.standard
   )
 
   const handleMouseOver = () => {
