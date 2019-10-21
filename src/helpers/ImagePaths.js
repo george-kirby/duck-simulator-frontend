@@ -1,18 +1,18 @@
 const ducks = {
-  deadDuck: "dead-duck.png",
-  footballDuck: "football-duck.png",
-  frenchDuck: "french-duck.png",
-  hangryDuck: "hangry-duck.png",
-  happyDuck: "happy-duck.png",
-  lawyerDuck: "lawyer-duck.png",
-  malcontentDuck: "malcontent-duck.png",
-  partyDuck: "party-duck.png",
-  sadDuck: "sad-duck.png",
-  scaredDuck: "scared-duck.png",
-  sleepyDuck: "sleepy-duck.png",
-  smartDuck: "smart-duck.png",
-  standardDuck: "standard-duck.png",
-  tiredDuck: "tired-duck.png"
+    dead: "dead-duck.png",
+    football: "football-duck.png",
+    french: "french-duck.png",
+    hangry: "hangry-duck.png",
+    happy: "happy-duck.png",
+    lawyer: "lawyer-duck.png",
+    malcontent: "malcontent-duck.png",
+    party: "party-duck.png",
+    sad: "sad-duck.png",
+    scared: "scared-duck.png",
+    sleeping: "sleeping-duck.png",
+    smart: "smart-duck.png",
+    standard: "standard-duck.png",
+    tired: "tired-duck.png",
 }
 
 const areas = {

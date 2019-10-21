@@ -21,30 +21,8 @@ const DuckDetails = ({
   killDuck,
   removeCurrentDuck
 }) => {
-  const moodDisplay = () => {
-    if (!alive) return "Dead"
-    if (!awake) return "Sleeping"
-    return mood
-  }
 
-  const consciousnessDisplay = () => {
-    if (!alive) return "Dead"
-    if (!awake) return "Asleep"
-    return "Awake"
-  }
-
-  const displayImage =
-    hunger > 9
-      ? Helpers.displayImage(
-          "duck-drawings",
-          Images.ducks.standardDuck,
-          Images.ducks.hangryDuck
-        )
-      : Helpers.displayImage(
-          "duck-drawings",
-          Images.ducks.standardDuck,
-          Images.ducks.standardDuck
-        )
+  const displayImage = Helpers.displayImage("duck-drawings", ImagePaths.standard, ImagePaths[mood])
 
   return (
     <div id="duck-details">
@@ -57,9 +35,7 @@ const DuckDetails = ({
         <h3>
           {name} {gender === "female" ? "♀️" : "♂️"}
         </h3>
-        <p>({alive ? "Alive" : "Dead"})</p>
-        <p>(Consciousness: {consciousnessDisplay()})</p>
-        <p>Mood: {moodDisplay()}</p>
+        <p>Mood: {mood}</p>
         <p className={hunger > 9 ? "red" : "normal"}>Hunger: {hunger}</p>
         <p>Owner: {user.username}</p>
         <p>Area: {area.name}</p>

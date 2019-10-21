@@ -22,16 +22,14 @@ function App() {
 
   const feedDuck = duck => {
     console.log(`${duck.name} ate some tasty bread`)
-    API.patchDuck(duck, { mood: "happily fed", hunger: 0 }).then(setCurrentDuck)
+    API.patchDuck(duck, { mood: "happy", hunger: 0 }).then(setCurrentDuck)
   }
 
   const takeDuckForSwim = duck => {
     console.log(`${duck.name} went for a swim`)
     let newHunger = Helpers.increaseToMax10(duck.hunger, 5)
-    API.patchDuck(duck, {
-      mood: "swimming happily",
-      hunger: newHunger
-    }).then(setCurrentDuck)
+    let mood = newHunger > 9 ? "hangry" : "happy"
+    API.patchDuck(duck, {mood, hunger: newHunger}).then(setCurrentDuck)
   }
 
   const squeakDuck = duck => {
@@ -42,7 +40,8 @@ function App() {
       console.log(`silence... :(`)
     }
     let newHunger = Helpers.increaseToMax10(duck.hunger, 2)
-    API.patchDuck(duck, { hunger: newHunger }).then(setCurrentDuck)
+    let mood = newHunger > 9 ? "hangry" : "happy"
+    API.patchDuck(duck, { hunger: newHunger, mood }).then(setCurrentDuck)
   }
 
   const moveArea = (duck, area) => {
@@ -50,12 +49,24 @@ function App() {
   }
 
   const sleepChange = duck => {
-    API.patchDuck(duck, { awake: !duck.awake }).then(setCurrentDuck)
+    let duckData = {}
+    if (duck.awake) {
+      duckData = { awake: false, mood: "sleeping" }
+    } else {
+      if (duck.hunger > 9) {
+        duckData = { awake: true, mood: "hangry" }
+      } else {
+        duckData = { awake: true, mood: "happy" }
+      }
+    }
+    API.patchDuck(duck, duckData).then(setCurrentDuck)
   }
 
   const killDuck = duck => {
-    console.log(`${duck.name} died! :(`)
-    API.patchDuck(duck, { alive: false }).then(setCurrentDuck)
+    if (window.confirm(`Are you sure you want to kill ${duck.name}??`)) {
+      console.log(`${duck.name} died! :(`)
+      API.patchDuck(duck, { alive: false, mood: "dead" }).then(setCurrentDuck)
+    }
   }
 
   const handleDuckSelection = duck => {
