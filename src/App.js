@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import "./stylesheets/App.css"
 import Main from "./components/Main"
+import AddDuck from "./components/AddDuck"
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Main />
         </Route>
         <Route exact path="/add-duck">
-          Add a duck !
+          <AddDuck />
         </Route>
         <Route exact path="/login">
           You are logged out

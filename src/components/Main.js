@@ -5,7 +5,7 @@ import AreaContainer from "../containers/AreaContainer"
 import API from "../adapters/API"
 import Helpers from "../helpers/Helpers"
 
-const Main = props => {
+const Main = () => {
   const [ducks, setDucks] = useState([])
   const [areas, setAreas] = useState([])
   const [currentDuck, setCurrentDuck] = useState(null)

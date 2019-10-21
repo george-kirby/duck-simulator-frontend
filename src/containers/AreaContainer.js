@@ -10,7 +10,6 @@ const AreaContainer = ({
 }) => {
   return (
     <div>
-      {console.log(currentArea)}
       {currentArea ? (
         <AreaDetails
           removeCurrentArea={() => setCurrentAreaId(null)}

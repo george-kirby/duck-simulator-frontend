@@ -3,7 +3,7 @@ import "../stylesheets/Duck.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
-const Duck = ({ name, image_url, mood, selectDuck }) => {
+const Duck = ({ name, mood, selectDuck }) => {
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standardDuck,
