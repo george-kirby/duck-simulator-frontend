@@ -3,13 +3,13 @@ import "../stylesheets/AreaDuck.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
-const AreaDuck = ({ id, name, image_url, handleClickAreaDuck }) => {
+const AreaDuck = ({ id, name, image_url, handleClickAreaDuck, mood }) => {
   const [duckNameClass, setDuckNameClass] = useState("hidden")
 
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standard,
-    Images.ducks.standard
+    Images.ducks[mood]
   )
 
   const handleMouseOver = () => {

@@ -9,7 +9,7 @@ const Main = props => {
   const [ducks, setDucks] = useState([])
   const [areas, setAreas] = useState([])
   const [currentDuck, setCurrentDuck] = useState(null)
-  const [currentArea, setCurrentArea] = useState(null)
+  const [currentAreaId, setCurrentAreaId] = useState(null)
 
   useEffect(() => {
     API.getDucks().then(ducks => {
@@ -72,16 +72,20 @@ const Main = props => {
   const handleDuckSelection = duck => {
     setCurrentDuck(duck)
     if (duck === null) {
-      setCurrentArea(null)
+      setCurrentAreaId(null)
     } else {
-      let selectedArea = areas.find(area => area.id === duck.area.id)
-      setCurrentArea(selectedArea)
+      // let selectedArea = areas.find(area => area.id === duck.area.id)
+      setCurrentAreaId(duck.area.id)
     }
   }
 
   const handleClickAreaDuck = duckId => {
     let duckSelected = ducks.find(duck => duck.id === duckId)
     setCurrentDuck(duckSelected)
+  }
+
+  const findCurrentArea = () => {
+    return areas.find(area => area.id === currentAreaId)
   }
 
   return (
@@ -98,7 +102,8 @@ const Main = props => {
       </div>
       <div className="split right">
         <AreaContainer
-          {...{ areas, currentArea, setCurrentArea, handleClickAreaDuck }}
+          currentArea={findCurrentArea()}
+          {...{ areas, setCurrentAreaId, handleClickAreaDuck }}
         />
       </div>
     </div>

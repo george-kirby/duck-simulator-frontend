@@ -5,18 +5,19 @@ import AreaDetails from "../components/AreaDetails"
 const AreaContainer = ({
   areas,
   currentArea,
-  setCurrentArea,
+  setCurrentAreaId,
   handleClickAreaDuck
 }) => {
   return (
     <div>
+      {console.log(currentArea)}
       {currentArea ? (
         <AreaDetails
-          removeCurrentArea={() => setCurrentArea(null)}
+          removeCurrentArea={() => setCurrentAreaId(null)}
           {...{ ...currentArea, handleClickAreaDuck }}
         />
       ) : (
-        <AreaList {...{ areas, setCurrentArea }} />
+        <AreaList {...{ areas, setCurrentAreaId }} />
       )}
     </div>
   )

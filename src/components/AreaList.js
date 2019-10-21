@@ -1,20 +1,20 @@
-import React from "react";
-import Area from "./Area";
+import React from "react"
+import Area from "./Area"
 
-const AreaList = ({ areas, setCurrentArea }) => {
+const AreaList = ({ areas, setCurrentAreaId }) => {
   return (
     <ul>
       {areas.map(area => {
         return (
           <Area
             key={area.id}
-            selectArea={() => setCurrentArea(area)}
+            selectArea={() => setCurrentAreaId(area.id)}
             {...area}
           />
-        );
+        )
       })}
     </ul>
-  );
-};
+  )
+}
 
-export default AreaList;
+export default AreaList
