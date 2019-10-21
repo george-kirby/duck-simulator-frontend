@@ -1,15 +1,15 @@
 import React from "react"
 import AreaDuckList from "../containers/AreaDuckList"
 import "../stylesheets/AreaDetails.css"
+import Helpers from "../helpers/Helpers"
+import Images from "../helpers/ImagePaths"
 
 const AreaDetails = ({ name, image_url, removeCurrentArea, ducks }) => {
-  const displayImage = () => {
-    return image_url !== ""
-      ? require(`../images/${image_url}`)
-      : require("../images/area-template.png")
-  }
-
-  const backgroundImg = displayImage()
+  const backgroundImg = Helpers.displayImage(
+    "areas",
+    Images.areas.flatironPond,
+    Images.areas.flatironPond
+  )
 
   const divStyle = {
     backgroundImage: `url(${backgroundImg})`,
@@ -18,6 +18,7 @@ const AreaDetails = ({ name, image_url, removeCurrentArea, ducks }) => {
 
   return (
     <div className="area-details" style={divStyle}>
+      {/* <div className="area-details"> */}
       <h1>{name}</h1>
       <button onClick={removeCurrentArea}>Back to Area List</button>
       <AreaDuckList {...{ ducks }} />

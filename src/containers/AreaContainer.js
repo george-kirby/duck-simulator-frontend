@@ -1,6 +1,6 @@
-import React from "react";
-import AreaList from "../components/AreaList";
-import AreaDetails from "../components/AreaDetails";
+import React from "react"
+import AreaList from "../components/AreaList"
+import AreaDetails from "../components/AreaDetails"
 
 const AreaContainer = ({ areas, currentArea, setCurrentArea }) => {
   return (
@@ -14,7 +14,7 @@ const AreaContainer = ({ areas, currentArea, setCurrentArea }) => {
         <AreaList {...{ areas, setCurrentArea }} />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AreaContainer;
+export default AreaContainer

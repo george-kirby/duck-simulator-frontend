@@ -60,8 +60,9 @@ function App() {
 
   const handleDuckSelection = duck => {
     setCurrentDuck(duck)
-    if (duck === null) {setCurrentArea(null)}
-    else {
+    if (duck === null) {
+      setCurrentArea(null)
+    } else {
       let selectedArea = areas.find(area => area.id === duck.area.id)
       setCurrentArea(selectedArea)
     }

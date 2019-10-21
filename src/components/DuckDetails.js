@@ -2,7 +2,7 @@ import React from "react"
 import ActionsMenu from "../components/ActionsMenu"
 import Helpers from "../helpers/Helpers"
 import "../stylesheets/DuckDetails.css"
-import ImagePaths from "../helpers/ImagePaths"
+import Images from "../helpers/ImagePaths"
 
 const DuckDetails = ({
   name,
@@ -33,17 +33,17 @@ const DuckDetails = ({
     return "Awake"
   }
 
-  const failsafeImage =
+  const displayImage =
     hunger > 9
       ? Helpers.displayImage(
           "duck-drawings",
-          ImagePaths.standardDuck,
-          ImagePaths.hangryDuck
+          Images.ducks.standardDuck,
+          Images.ducks.hangryDuck
         )
       : Helpers.displayImage(
           "duck-drawings",
-          ImagePaths.standardDuck,
-          ImagePaths.standardDuck
+          Images.ducks.standardDuck,
+          Images.ducks.standardDuck
         )
 
   return (
@@ -63,7 +63,7 @@ const DuckDetails = ({
         <p className={hunger > 9 ? "red" : "normal"}>Hunger: {hunger}</p>
         <p>Owner: {user.username}</p>
         <p>Area: {area.name}</p>
-        <img src={failsafeImage} alt={name} width="50%" />
+        <img src={displayImage} alt={name} width="50%" />
       </div>
       <div>
         ACTION MENU
