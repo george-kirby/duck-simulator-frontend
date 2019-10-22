@@ -68,9 +68,9 @@ const App = props => {
         <Route exact path="/login">
           <Login {...{ handleLogin }} />
         </Route>
-        {/* <Route path="*">
+        <Route path="*">
           <Redirect to="/" />
-        </Route> */}
+        </Route>
       </Switch>
     </div>
   )
