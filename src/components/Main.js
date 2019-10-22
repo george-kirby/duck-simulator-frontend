@@ -69,6 +69,12 @@ const Main = () => {
     }
   }
 
+  const handleDuckChangeArea = event => {
+    let areaId = parseInt(event.target.value, 10)
+    API.patchDuck(currentDuck, { area_id: areaId }).then(setCurrentDuck)
+    setCurrentAreaId(areaId)
+  }
+
   const handleDuckSelection = duck => {
     setCurrentDuck(duck)
     if (duck === null) {
@@ -92,7 +98,13 @@ const Main = () => {
     <div>
       <div className="split left">
         <DuckContainer
-          {...{ ducks, currentDuck, handleDuckSelection }}
+          {...{
+            ducks,
+            currentDuck,
+            handleDuckSelection,
+            handleDuckChangeArea,
+            areas
+          }}
           feedDuck={() => feedDuck(currentDuck)}
           takeDuckForSwim={() => takeDuckForSwim(currentDuck)}
           sleepChange={() => sleepChange(currentDuck)}
