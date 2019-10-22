@@ -44,7 +44,7 @@ const DuckContainer = ({
           removeCurrentDuck={() => handleDuckSelection(null)}
         />
       ) : (
-        <DuckList {...{ ducks: filteredDucks(), handleDuckSelection }} />
+        <DuckList {...{ ducks: filteredDucks(), handleDuckSelection, currentUser }} />
       )}
     </div>
   )
