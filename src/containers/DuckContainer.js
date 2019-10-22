@@ -1,7 +1,6 @@
 import React from "react"
 import DuckList from "../components/DuckList"
 import DuckDetails from "../components/DuckDetails"
-import WoodBackground from "../images/theme/wood-background.jpg"
 
 const DuckContainer = ({
   areas,
@@ -16,11 +15,6 @@ const DuckContainer = ({
   handleDuckSelection,
   currentUser
 }) => {
-  const divStyle = {
-    backgroundImage: `url(${WoodBackground})`,
-    height: "755px"
-  }
-
   const filteredDucks = () => {
     return ducks.filter(
       duck => !currentUser || duck.user.username === currentUser.username
@@ -28,7 +22,7 @@ const DuckContainer = ({
   }
 
   return (
-    <div style={divStyle}>
+    <div>
       {currentDuck ? (
         <DuckDetails
           {...{

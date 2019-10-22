@@ -94,7 +94,7 @@ const Main = ({ currentUser }) => {
 
   return (
     <div className="main-container">
-      <div className="ducks-container">
+      <div className="ducks-container duck-background">
         <DuckContainer
           {...{
             ducks,

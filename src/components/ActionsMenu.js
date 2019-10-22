@@ -44,7 +44,7 @@ const ActionsMenu = ({
           disabled={failsStandardCheck() || !awake}
           className={hunger > 9 ? "red" : "normal"}
         >
-          <span role="img">🍞 Feed</span>
+          {"🍞"} Feed
         </button>
       </div>
 
@@ -59,7 +59,7 @@ const ActionsMenu = ({
           onClick={takeDuckForSwim}
           disabled={failsStandardCheck() || !awake || hunger > 9}
         >
-          <span role="img">👙 Take for a swim</span>
+          {"👙"} Take for a swim
         </button>
       </div>
 
@@ -71,13 +71,13 @@ const ActionsMenu = ({
           }}
           disabled={failsStandardCheck() || !awake || hunger > 9}
         >
-          <span role="img"> 🔈 Squeak</span>
+          {"🔈"} Squeak
         </button>
       </div>
 
       <div>
         <button onClick={killDuck} disabled={failsStandardCheck()}>
-          <span role="img">☠️ KILL</span>
+          {"☠️"} KILL
         </button>
       </div>
 

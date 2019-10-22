@@ -3,10 +3,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-content: stretch;
+  height: 100%;
 }
 
 .duck-list > h3 {
   position: sticky;
   margin: auto;
   text-align: center;
+  padding-top: 0.5rem;
 }

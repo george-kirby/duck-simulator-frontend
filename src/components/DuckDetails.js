@@ -38,8 +38,13 @@ const DuckDetails = ({
     <div id="duck-details">
       <div>
         <div className="duck-details-header">
+          <img
+            src={require("../images/theme/back-button.png")}
+            alt="back-button"
+            onClick={removeCurrentDuck}
+            style={{ width: "2rem", height: "2rem" }}
+          />
           <h3>DUCK DETAILS</h3>
-          <button onClick={removeCurrentDuck}>Back</button>
         </div>
 
         <strong className="duck-name-styling">
@@ -47,8 +52,8 @@ const DuckDetails = ({
         </strong>
         <p>Mood: {mood}</p>
         <p className={hunger > 9 ? "red" : "normal"}>Hunger: {hunger}</p>
-        <p>Owner: {user.username}</p>
-        <p>Area: {area.name}</p>
+        {/* <p>Owner: {user.username}</p>
+        <p>Area: {area.name}</p> */}
         <img src={displayImage} alt={name} width="50%" />
       </div>
       <div>
