@@ -19,7 +19,7 @@ const DuckContainer = ({
 
   const divStyle = {
     backgroundImage: `url(${background})`,
-    height: "600px"
+    height: "100%"
   }
 
   const filteredDucks = () => {
