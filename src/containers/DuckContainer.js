@@ -1,28 +1,47 @@
-import React from "react";
-import DuckList from "../components/DuckList";
-import DuckDetails from "../components/DuckDetails";
+import React from "react"
+import DuckList from "../components/DuckList"
+import DuckDetails from "../components/DuckDetails"
 
 const DuckContainer = ({
+  areas,
   ducks,
   currentDuck,
   feedDuck,
   takeDuckForSwim,
+  handleDuckChangeArea,
   sleepChange,
-  squeakDuck, killDuck, 
+  squeakDuck,
+  killDuck,
   handleDuckSelection
 }) => {
+  const background = require("../images/theme/wood-background.jpg")
+
+  const divStyle = {
+    backgroundImage: `url(${background})`,
+    height: "600px"
+  }
+
   return (
-    <div>
+    <div style={divStyle}>
       {currentDuck ? (
         <DuckDetails
-          {...{ ...currentDuck, feedDuck, takeDuckForSwim, sleepChange, squeakDuck, killDuck }}
+          {...{
+            areas,
+            ...currentDuck,
+            feedDuck,
+            handleDuckChangeArea,
+            takeDuckForSwim,
+            sleepChange,
+            squeakDuck,
+            killDuck
+          }}
           removeCurrentDuck={() => handleDuckSelection(null)}
         />
       ) : (
         <DuckList {...{ ducks, handleDuckSelection }} />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default DuckContainer;
+export default DuckContainer
