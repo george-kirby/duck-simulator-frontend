@@ -1,20 +1,21 @@
-import React from "react";
+import React from "react"
+import "../stylesheets/Duck.css"
+import Helpers from "../helpers/Helpers"
+import Images from "../helpers/ImagePaths"
 
-const Duck = ({ name, image_url, mood }) => {
+const Duck = ({ name, mood, color, selectDuck }) => {
+  const displayImage = Helpers.displayImage(
+    "duck-drawings",
+    Images.ducks.standardDuck,
+    `${color}-${Images.ducks[mood]}`
+  )
+
   return (
-    <li>
-      {image_url !== "" ? (
-        <img src={require(`../images/${image_url}`)} width="2%" alt={name} />
-      ) : (
-        <img
-          src={require(`../images/duck-template.jpg`)}
-          width="2%"
-          alt="duck template"
-        />
-      )}{" "}
+    <li className="duck-li" onClick={selectDuck}>
+      <img src={displayImage} width="10%" alt={name} />
       {name} - {mood}
     </li>
-  );
-};
+  )
+}
 
-export default Duck;
+export default Duck

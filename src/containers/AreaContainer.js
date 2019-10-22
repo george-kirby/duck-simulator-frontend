@@ -1,17 +1,26 @@
-import React from "react";
-import AreaList from "../components/AreaList";
-import AreaDetails from "../components/AreaDetails";
+import React from "react"
+import AreaList from "../components/AreaList"
+import AreaDetails from "../components/AreaDetails"
 
-const AreaContainer = ({ areas, currentArea }) => {
+const AreaContainer = ({
+  areas,
+  currentArea,
+  setCurrentAreaId,
+  handleClickAreaDuck,
+  currentDuck
+}) => {
   return (
     <div>
       {currentArea ? (
-        <AreaDetails {...{ ...currentArea }} />
+        <AreaDetails
+          removeCurrentArea={() => setCurrentAreaId(null)}
+          {...{ ...currentArea, handleClickAreaDuck, currentDuck }}
+        />
       ) : (
-        <AreaList {...{ areas }} />
+        <AreaList {...{ areas, setCurrentAreaId }} />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AreaContainer;
+export default AreaContainer

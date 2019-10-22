@@ -1,15 +1,78 @@
-import React from "react";
+import React, { useState, useEffect } from "react"
+import "../stylesheets/ActionsMenu.css"
 
-const ActionsMenu = props => {
+const ActionsMenu = ({
+  alive,
+  area,
+  areas,
+  awake,
+  feedDuck,
+  handleDuckChangeArea,
+  hunger,
+  killDuck,
+  sleepChange,
+  squeakDuck,
+  takeDuckForSwim,
+  belongsToCurrentUser
+}) => {
+  // const [areaId, setAreaId] = useState(area.id)
+
+  // const handleDuckChangeArea = event => {
+  //   setAreaId(event.target.value)
+  // }
+  const failsStandardCheck = () => {
+    return !belongsToCurrentUser || !alive
+  }
+
+  const audio = new Audio(require("../audio/duck-quack.mp3"))
+
+  const playSqueak = () => {
+    audio.play()
+  }
+
   return (
     <div>
-        <button>Feed</button>
-        <button>Tuck In</button>
-        <button>Take for a swim</button>
-        <button>Squeak</button>
-        <button>KILL</button>
+      <button
+        onClick={feedDuck}
+        disabled={failsStandardCheck() || !awake}
+        className={hunger > 9 ? "red" : "normal"}
+      >
+        Feed
+      </button>
+      <button onClick={sleepChange} disabled={failsStandardCheck()}>
+        {awake ? "Put to Bed" : "Wake Up"}
+      </button>
+      <button
+        onClick={takeDuckForSwim}
+        disabled={failsStandardCheck() || !awake || hunger > 9}
+      >
+        Take for a swim
+      </button>
+      <button
+        onClick={() => {
+          squeakDuck()
+          playSqueak()
+        }}
+        disabled={failsStandardCheck() || !awake || hunger > 9}
+      >
+        Squeak
+      </button>
+      <button onClick={killDuck} disabled={failsStandardCheck()}>
+        KILL
+      </button>
+      <select
+        disabled={!belongsToCurrentUser}
+        value={area.id}
+        onChange={handleDuckChangeArea}
+      >
+        {areas.map(area => (
+          <option key={area.id} value={area.id}>
+            {area.name}
+          </option>
+        ))}
+      </select>
     </div>
-  );
-};
+  )
+}
 
-export default ActionsMenu;
+export default ActionsMenu

@@ -1,28 +1,35 @@
-import React from "react";
-import AreaDuck from './AreaDuck'
+import React from "react"
+import AreaDuckList from "../containers/AreaDuckList"
+import "../stylesheets/AreaDetails.css"
+import Helpers from "../helpers/Helpers"
 
-const AreaDetails = ({ name, image_url}) => {
+const AreaDetails = ({
+  name,
+  image_url,
+  removeCurrentArea,
+  ducks,
+  handleClickAreaDuck,
+  currentDuck
+}) => {
+  const backgroundImg = Helpers.displayImage(
+    "areas",
+    "flatiron-pond.png",
+    image_url
+  )
 
-  // const displayImage = () => {
-  //   if (image_url === "") return require(`../images/area-template.png`)
-  // }
-  
-  // (image_url !== "" ? (
-  //       require(`../images/${image_url}`)} width="100%" alt={name} />
-  //     ) : src={require(`../images/area-template.png`)}
-  //       />
-  //     ))
+  const divStyle = {
+    backgroundImage: `url(${backgroundImg})`,
+    height: "600px"
+  }
 
-  // const path = "../images/area-template.png"
-  const path = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Staw_naturalny.JPG/360px-Staw_naturalny.JPG"
+  return (
+    <div className="area-details" style={divStyle}>
+      {/* <div className="area-details"> */}
+      {name}
+      <button onClick={removeCurrentArea}>Back to Area List</button>
+      <AreaDuckList {...{ ducks, handleClickAreaDuck, currentDuck }} />
+    </div>
+  )
+}
 
-  const divStyle = {backgroundImage: 'url('+path+')'}
-
-  return <div style={divStyle}>
-    {name}
-    {" "}
-      <AreaDuck/>
-  </div>;
-};
-
-export default AreaDetails;
+export default AreaDetails

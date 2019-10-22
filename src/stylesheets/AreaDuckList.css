@@ -1,0 +1,9 @@
+.area-duck {
+  margin: auto;
+  width: 70%;
+  margin-top: 24%;
+  margin-left: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

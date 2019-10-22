@@ -1,0 +1,21 @@
+/* Split the screen in half */
+.split {
+  height: 100%;
+  position: fixed;
+  /* z-index: 1; */
+  overflow-x: hidden;
+  margin: 0.5rem;
+  height: 1000px;
+}
+
+/* Control the left side */
+.left {
+  width: 20%;
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  width: 78%;
+}

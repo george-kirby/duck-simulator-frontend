@@ -1,84 +1,87 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import DuckContainer from "./containers/DuckContainer";
-import API from "./adapters/API";
-import AreaContainer from "./containers/AreaContainer"
+import React, { useState, useEffect } from "react"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  withRouter,
+  Redirect
+} from "react-router-dom"
+import "./stylesheets/App.css"
+import Main from "./components/Main"
+import Login from "./components/Login"
+import API from "./adapters/API"
+import AddDuck from "./components/AddDuck"
 
-function App() {
-  const [ducks, setDucks] = useState([]);
-  const [areas, setAreas] = useState([]);
-  const [currentDuck, setCurrentDuck] = useState({
-    id: 22,
-    name: "Joaquin",
-    gender: "male",
-    alive: true,
-    awake: true,
-    hunger: 0,
-    mood: "happy",
-    image_url: "duck-template.jpg",
-    user_id: 7,
-    area_id: 5,
-    created_at: "2019-10-17T12:15:50.160Z",
-    updated_at: "2019-10-17T12:15:50.160Z"
-  });
-  const [currentArea, setCurrentArea] = useState({
-    "id": 7,
-    "name": "Flatiron Pond",
-    "max_capacity": 10,
-    "image_url": "area-template.png",
-    "ducks": [
-      {
-        "id": 32,
-        "name": "Joaquin",
-        "image_url": "duck-template.jpg"
-      },
-      {
-        "id": 33,
-        "name": "Oli",
-        "image_url": "duck-template.jpg"
-      },
-      {
-        "id": 37,
-        "name": "Polly",
-        "image_url": "duck-template.jpg"
-      },
-      {
-        "id": 38,
-        "name": "Angie",
-        "image_url": "duck-template.jpg"
-      },
-      {
-        "id": 39,
-        "name": "Sohaib",
-        "image_url": "duck-template.jpg"
-      },
-      {
-        "id": 40,
-        "name": "Ian",
-        "image_url": "duck-template.jpg"
-      },
-      {
-        "id": 41,
-        "name": "Will",
-        "image_url": ""
-      }
-    ]
-  },);
-
-  // const [currentDuck, setCurrentDuck] = useState(null)
-  // const [currentArea, setCurrentArea] = useState(null);
+const App = props => {
+  const [users, setUsers] = useState([])
+  const [currentUser, setCurrentUser] = useState(null)
+  // const [newDuck, setNewDuck] = useState(null)
 
   useEffect(() => {
-    API.getDucks().then(setDucks);
-    API.getAreas().then(setAreas);
-  }, []);
+    API.getUsers().then(setUsers)
+  }, [])
+
+  const handleLogin = event => {
+    event.preventDefault()
+    const givenUsername = event.target.username.value
+    const findCurrentUser = users.find(user => user.username === givenUsername)
+    if (findCurrentUser) {
+      setCurrentUser(findCurrentUser)
+    } else {
+      API.postUser({ username: givenUsername }).then(setCurrentUser)
+    }
+    props.history.push("/")
+  }
+
+  const handleLogout = () => {
+    setCurrentUser(null)
+    console.log("logging out")
+  }
+
+  // const handleNewDuck = duck => setNewDuck(duck)
 
   return (
     <div>
-      <DuckContainer {...{ ducks, currentDuck }} />
-      <AreaContainer {...{ areas, currentArea }}   />
+      {currentUser ? (
+        <nav className="navbar">
+          <Link to="/">HOME</Link>
+          <Link to="/add-duck">ADD DUCK</Link>
+          <div>{`Logged in as ${currentUser.username}`}</div>
+          <Link to="/login" onClick={handleLogout}>
+            LOG OUT
+          </Link>
+        </nav>
+      ) : (
+        <nav className="navbar">
+          <Link to="/">HOME</Link>
+          <Link to="/login" id="login-link">
+            LOG IN
+          </Link>
+        </nav>
+      )}
+      <Switch>
+        <Route exact path="/">
+          <Main {...{ currentUser }} />
+        </Route>
+        {/* {currentUser ? <Main /> : <Login/>} */}
+        <Route
+
+          exact path="/add-duck"
+          component={currentUser ? routerProps => <AddDuck {...{...routerProps, currentUser}} /> : routerProps => <Redirect to="/" />}
+
+        />
+        <Route exact path="/login">
+          <Login {...{ handleLogin }} />
+        </Route>
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+const AppRouter = withRouter(App)
+
+export default AppRouter
