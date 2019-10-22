@@ -21,10 +21,9 @@ const DuckDetails = ({
   sleepChange,
   squeakDuck,
   killDuck,
-  removeCurrentDuck, 
+  removeCurrentDuck,
   currentUser
 }) => {
-
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standard,
@@ -38,14 +37,14 @@ const DuckDetails = ({
   return (
     <div id="duck-details">
       <div>
-        <div>
-          DUCK DETAILS
-          <button onClick={removeCurrentDuck}>Back to duck list</button>
+        <div className="duck-details-header">
+          <h3>DUCK DETAILS</h3>
+          <button onClick={removeCurrentDuck}>Back</button>
         </div>
 
-        <h3>
+        <strong className="duck-name-styling">
           {name} {gender === "female" ? "♀️" : "♂️"}
-        </h3>
+        </strong>
         <p>Mood: {mood}</p>
         <p className={hunger > 9 ? "red" : "normal"}>Hunger: {hunger}</p>
         <p>Owner: {user.username}</p>
@@ -53,8 +52,9 @@ const DuckDetails = ({
         <img src={displayImage} alt={name} width="50%" />
       </div>
       <div>
-        ACTION MENU
-        <ActionsMenu belongsToCurrentUser={belongsToCurrentUser()}
+        <h3>ACTION MENU</h3>
+        <ActionsMenu
+          belongsToCurrentUser={belongsToCurrentUser()}
           {...{
             alive,
             awake,

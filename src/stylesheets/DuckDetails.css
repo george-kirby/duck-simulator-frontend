@@ -1,7 +1,22 @@
 #duck-details {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .red {
-    color: red
+  color: red;
+}
+
+.duck-details-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.duck-details-header > button {
+  margin: 6%;
+  border-radius: 0.3rem;
+  /* border-color: brown; */
+}
+
+.duck-name-styling {
+  font-size: 1.5rem;
 }

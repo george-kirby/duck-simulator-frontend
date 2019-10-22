@@ -93,8 +93,8 @@ const Main = ({ currentUser }) => {
   }
 
   return (
-    <div>
-      <div className="split left">
+    <div className="main-container">
+      <div className="ducks-container">
         <DuckContainer
           {...{
             ducks,
@@ -111,7 +111,7 @@ const Main = ({ currentUser }) => {
           killDuck={() => killDuck(currentDuck)}
         />
       </div>
-      <div className="split right">
+      <div className="areas-container">
         <AreaContainer
           currentArea={findCurrentArea()}
           {...{ areas, setCurrentAreaId, handleClickAreaDuck, currentDuck }}

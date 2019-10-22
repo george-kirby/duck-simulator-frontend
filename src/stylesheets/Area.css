@@ -1,0 +1,29 @@
+.area-card {
+  /* cursor: pointer; */
+  width: 22rem;
+  height: 20rem;
+  margin: 1rem auto;
+  position: relative;
+  border-radius: 0.5rem;
+  border: solid #9e6262 0.1rem;
+  padding: 0 0.5rem;
+  display: grid;
+  grid-template-rows: 80% 20%;
+  background: white;
+  align-items: center;
+  transition: box-shadow 0.5s ease-in;
+}
+
+.area-card:hover {
+  box-shadow: 0px 0px 5px 2px #a52a2a;
+}
+
+.area-card > img {
+  width: 100%;
+  border-radius: inherit;
+}
+
+.area-card > div {
+  margin: 1rem auto;
+  z-index: 10;
+}

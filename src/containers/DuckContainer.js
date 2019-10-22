@@ -1,6 +1,7 @@
 import React from "react"
 import DuckList from "../components/DuckList"
 import DuckDetails from "../components/DuckDetails"
+import WoodBackground from "../images/theme/wood-background.jpg"
 
 const DuckContainer = ({
   areas,
@@ -15,11 +16,9 @@ const DuckContainer = ({
   handleDuckSelection,
   currentUser
 }) => {
-  const background = require("../images/theme/wood-background.jpg")
-
   const divStyle = {
-    backgroundImage: `url(${background})`,
-    height: "100%"
+    backgroundImage: `url(${WoodBackground})`,
+    height: "755px"
   }
 
   const filteredDucks = () => {

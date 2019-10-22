@@ -1,12 +1,12 @@
+.areas-list > h3 {
+  position: sticky;
+  margin: auto;
+  text-align: center;
+}
+
 .cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: stretch;
-}
-
-.duck-list > h3 {
-  position: sticky;
-  margin: auto;
-  text-align: center;
 }
