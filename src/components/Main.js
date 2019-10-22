@@ -5,7 +5,7 @@ import AreaContainer from "../containers/AreaContainer"
 import API from "../adapters/API"
 import Helpers from "../helpers/Helpers"
 
-const Main = ({currentUser}) => {
+const Main = ({ currentUser }) => {
   const [ducks, setDucks] = useState([])
   const [areas, setAreas] = useState([])
   const [currentDuck, setCurrentDuck] = useState(null)
@@ -43,10 +43,6 @@ const Main = ({currentUser}) => {
     let mood = newHunger > 9 ? "hangry" : "happy"
     API.patchDuck(duck, { hunger: newHunger, mood }).then(setCurrentDuck)
   }
-
-  // const moveArea = (duck, area) => {
-  //   duck.area = area
-  // }
 
   const sleepChange = duck => {
     let duckData = {}
@@ -103,7 +99,7 @@ const Main = ({currentUser}) => {
             currentDuck,
             handleDuckSelection,
             handleDuckChangeArea,
-            areas, 
+            areas,
             currentUser
           }}
           feedDuck={() => feedDuck(currentDuck)}

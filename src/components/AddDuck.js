@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import API from "../adapters/API"
 
-const AddDuck = () => {
+const AddDuck = ({ currentUser, history, handleNewDuck }) => {
   const [name, setName] = useState("")
   const [gender, setGender] = useState("male")
   const [color, setColor] = useState("yellow")
@@ -9,7 +9,10 @@ const AddDuck = () => {
   const [area, setArea] = useState("15")
 
   useEffect(() => {
-    API.getAreas().then(setAreas)
+    API.getAreas().then(areas => {
+      setAreas(areas)
+      setArea(areas[0].id)
+    })
   }, [])
   const handleNameChange = event => setName(event.target.value)
   const handleGenderChange = event => setGender(event.target.value)
@@ -23,10 +26,11 @@ const AddDuck = () => {
       gender,
       color,
       area_id: area,
-      user_id: 18
+      user_id: currentUser.id
     }
 
-    API.postDucks(newDuck).then(console.log)
+    API.postDucks(newDuck) //.then(handleNewDuck)
+    history.push("/")
   }
 
   return (
