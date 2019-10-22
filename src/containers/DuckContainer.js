@@ -22,6 +22,10 @@ const DuckContainer = ({
     height: "600px"
   }
 
+  const filteredDucks = () => {
+    return ducks.filter(duck => !currentUser || duck.user.username === currentUser.username)
+  }
+
   return (
     <div style={divStyle}>
       {currentDuck ? (
@@ -40,7 +44,7 @@ const DuckContainer = ({
           removeCurrentDuck={() => handleDuckSelection(null)}
         />
       ) : (
-        <DuckList {...{ ducks, handleDuckSelection }} />
+        <DuckList {...{ ducks: filteredDucks(), handleDuckSelection }} />
       )}
     </div>
   )
