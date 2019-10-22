@@ -16,6 +16,11 @@ import AddDuck from "./components/AddDuck"
 const App = props => {
   const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
+  // const [newDuck, setNewDuck] = useState(null)
+
+  useEffect(() => {
+    API.getUsers().then(setUsers)
+  }, [])
 
   const handleLogin = event => {
     event.preventDefault()
@@ -34,9 +39,7 @@ const App = props => {
     console.log("logging out")
   }
 
-  useEffect(() => {
-    API.getUsers().then(setUsers)
-  }, [])
+  // const handleNewDuck = duck => setNewDuck(duck)
 
   return (
     <div>
@@ -52,17 +55,19 @@ const App = props => {
       ) : (
         <nav className="navbar">
           <Link to="/">HOME</Link>
-          <Link to="/login" id="login-link">LOG IN</Link>
+          <Link to="/login" id="login-link">
+            LOG IN
+          </Link>
         </nav>
       )}
       <Switch>
         <Route exact path="/">
-          <Main {...{currentUser}} />
+          <Main {...{ currentUser }} />
         </Route>
         {/* {currentUser ? <Main /> : <Login/>} */}
         <Route
           exact path="/add-duck"
-          component={currentUser ? routerProps => <AddDuck {...routerProps} /> : routerProps => <Redirect to="/" />}
+          component={currentUser ? routerProps => <AddDuck {...routerProps, currentUser} /> : routerProps => <Redirect to="/" />}
         />
         <Route exact path="/login">
           <Login {...{ handleLogin }} />
