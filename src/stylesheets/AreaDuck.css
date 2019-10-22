@@ -2,22 +2,23 @@
   overflow: auto;
   min-width: 4rem;
   max-width: 6rem;
+  text-align: center;
 }
 
 .duck-container > img:hover {
-  animation: shake 0.5s;
+  animation: shake 0.3s;
 }
 
-.hidden {
-  visibility: hidden;
+.duck-name {
+  display: none;
 }
 
-.visible {
-  visibility: visible;
+div.duck-container:hover {
+  display: block;
 }
 
 .duck-selected {
-  max-width: 8rem;
+  width: 8rem;
 }
 
 @keyframes shake {

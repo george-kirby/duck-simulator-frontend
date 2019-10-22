@@ -19,30 +19,17 @@ const AreaDuck = ({
     `${color}-${Images.ducks[mood]}`
   )
 
-  const handleMouseOver = () => {
-    setDuckNameClass("visible")
-  }
-
-  const handleMouseLeave = () => {
-    setDuckNameClass("hidden")
-  }
-
-  const isCurrentDuck = () => {
-    console.log(currentDuck)
-    return currentDuck.id === id
-  }
+  const isCurrentDuck = () => currentDuck !== null && currentDuck.id === id
 
   return (
     <div className="duck-container">
-      <div className={duckNameClass}>{name}</div>
+      {name}
       <img
         src={displayImage}
         alt={name}
         width="90%"
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
         onClick={() => handleClickAreaDuck(id)}
-        className={isCurrentDuck ? "duck-selected" : ""}
+        className={isCurrentDuck() ? "duck-selected" : ""}
       ></img>
     </div>
   )

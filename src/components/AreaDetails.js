@@ -19,12 +19,11 @@ const AreaDetails = ({
 
   const divStyle = {
     backgroundImage: `url(${backgroundImg})`,
-    height: "600px"
+    height: "755px"
   }
 
   return (
     <div className="area-details" style={divStyle}>
-      {/* <div className="area-details"> */}
       {name}
       <button onClick={removeCurrentArea}>Back to Area List</button>
       <AreaDuckList {...{ ducks, handleClickAreaDuck, currentDuck }} />

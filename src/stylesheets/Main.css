@@ -1,21 +1,42 @@
 /* Split the screen in half */
-.split {
-  height: 100%;
+/* .split {
   position: fixed;
-  /* z-index: 1; */
   overflow-x: hidden;
   margin: 0.5rem;
   height: 1000px;
-}
+} */
 
 /* Control the left side */
-.left {
-  width: 20%;
+/* .left {
+  width: 15%;
+  margin-left: 10rem;
   left: 0;
-}
+} */
 
 /* Control the right side */
-.right {
+/* .right {
   right: 0;
-  width: 78%;
+  width: 67%;
+  margin-right: 10rem;
+} */
+
+.main-container {
+  margin-top: 0.5rem;
+  display: flex;
+  align-content: center;
+}
+
+.main-container > div {
+  margin: 0.5rem;
+  justify-content: center;
+  height: 100%;
+}
+
+.ducks-container {
+  width: 20%;
+}
+
+.areas-container {
+  width: 80%;
+  background-position: center;
 }
