@@ -1,5 +1,6 @@
 import React from "react";
 import Duck from "./Duck";
+import "../stylesheets/DuckList.css"
 
 const DuckList = ({ ducks, handleDuckSelection, currentUser }) => {
 
@@ -8,11 +9,14 @@ const DuckList = ({ ducks, handleDuckSelection, currentUser }) => {
   }
 
   return (
-    <ul> <strong>{listHeader()}</strong>
-      {ducks.map(duck => {
-        return <Duck key={duck.id} selectDuck={() => handleDuckSelection(duck)} {...duck} />;
-      })}
-    </ul>
+    <div>
+      <h3>{listHeader()}</h3>
+      <div className="cards-container"> 
+        {ducks.map(duck => {
+          return <Duck key={duck.id} selectDuck={() => handleDuckSelection(duck)} {...duck} />;
+        })}
+      </div>
+    </div>
   );
 }; 
 

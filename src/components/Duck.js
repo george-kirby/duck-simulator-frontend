@@ -11,10 +11,10 @@ const Duck = ({ name, mood, color, selectDuck }) => {
   )
 
   return (
-    <li className="duck-li" onClick={selectDuck}>
-      <img src={displayImage} width="10%" alt={name} />
-      {name} - {mood}
-    </li>
+    <div className="duck-card" onClick={selectDuck}>
+      <img src={displayImage} alt={name} />
+      <div>{name}</div>
+    </div>
   )
 }
 
