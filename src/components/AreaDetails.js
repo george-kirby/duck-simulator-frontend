@@ -18,16 +18,23 @@ const AreaDetails = ({
   )
 
   const divStyle = {
-    backgroundImage: `url(${backgroundImg})`,
-    height: "600px"
+    backgroundImage: `url(${backgroundImg})`
   }
 
   return (
-    <div className="area-details" style={divStyle}>
-      {/* <div className="area-details"> */}
-      {name}
-      <button onClick={removeCurrentArea}>Back to Area List</button>
-      <AreaDuckList {...{ ducks, handleClickAreaDuck, currentDuck }} />
+    <div className="area-details">
+      <div className="area-details-header">
+        <img
+          src={require("../images/theme/back-button.png")}
+          alt="back-button"
+          onClick={removeCurrentArea}
+          style={{ width: "2rem", height: "2rem" }}
+        />
+        <h3>{name}</h3>
+      </div>
+      <div className="area-background" style={divStyle}>
+        <AreaDuckList {...{ ducks, handleClickAreaDuck, currentDuck }} />
+      </div>
     </div>
   )
 }

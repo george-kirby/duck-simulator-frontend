@@ -2,3 +2,26 @@
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
+
+.area-background {
+  height: 33rem;
+  background-repeat: no-repeat;
+}
+
+.area-details-header {
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+}
+
+.area-details-header > img {
+  margin-right: 23rem;
+}
+
+.area-details-header > img:hover {
+  box-shadow: 0px 0px 5px 2px gray;
+}
+
+.area-name-styling {
+  font-size: 1.5rem;
+}

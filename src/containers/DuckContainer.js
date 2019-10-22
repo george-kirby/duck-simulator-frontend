@@ -15,13 +15,6 @@ const DuckContainer = ({
   handleDuckSelection,
   currentUser
 }) => {
-  const background = require("../images/theme/wood-background.jpg")
-
-  const divStyle = {
-    backgroundImage: `url(${background})`,
-    height: "100%"
-  }
-
   const filteredDucks = () => {
     return ducks.filter(
       duck => !currentUser || duck.user.username === currentUser.username
@@ -29,7 +22,7 @@ const DuckContainer = ({
   }
 
   return (
-    <div style={divStyle}>
+    <div>
       {currentDuck ? (
         <DuckDetails
           {...{

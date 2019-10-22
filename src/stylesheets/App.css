@@ -1,7 +1,12 @@
 body {
   font-family: sans-serif;
   background-color: #86be0e;
-  /* margin: 0 5rem; */
+  max-width: 73rem;
+  display: flex;
+  margin: auto;
+  border-left: solid;
+  border-right: solid;
+  border-color: #1fa00e;
 }
 
 .navbar {

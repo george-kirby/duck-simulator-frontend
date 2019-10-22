@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import "../stylesheets/ActionsMenu.css"
 
 const ActionsMenu = ({
@@ -30,47 +30,71 @@ const ActionsMenu = ({
     audio.play()
   }
 
+  const areaEmojis = {
+    "Flatiron Pond": "🏡",
+    "Green Park Pond": "🌳",
+    "Hell Pond": "🔥"
+  }
+
   return (
-    <div>
-      <button
-        onClick={feedDuck}
-        disabled={failsStandardCheck() || !awake}
-        className={hunger > 9 ? "red" : "normal"}
-      >
-        Feed
-      </button>
-      <button onClick={sleepChange} disabled={failsStandardCheck()}>
-        {awake ? "Put to Bed" : "Wake Up"}
-      </button>
-      <button
-        onClick={takeDuckForSwim}
-        disabled={failsStandardCheck() || !awake || hunger > 9}
-      >
-        Take for a swim
-      </button>
-      <button
-        onClick={() => {
-          squeakDuck()
-          playSqueak()
-        }}
-        disabled={failsStandardCheck() || !awake || hunger > 9}
-      >
-        Squeak
-      </button>
-      <button onClick={killDuck} disabled={failsStandardCheck()}>
-        KILL
-      </button>
-      <select
-        disabled={!belongsToCurrentUser}
-        value={area.id}
-        onChange={handleDuckChangeArea}
-      >
-        {areas.map(area => (
-          <option key={area.id} value={area.id}>
-            {area.name}
-          </option>
-        ))}
-      </select>
+    <div className="actions-list">
+      <div>
+        <button
+          onClick={feedDuck}
+          disabled={failsStandardCheck() || !awake}
+          className={hunger > 9 ? "red" : "normal"}
+        >
+          {"🍞"} Feed
+        </button>
+      </div>
+
+      <div>
+        <button onClick={sleepChange} disabled={failsStandardCheck()}>
+          <span role="img">{awake ? "🛏️ Put to Bed" : "⏰ Wake Up"}</span>
+        </button>
+      </div>
+
+      <div>
+        <button
+          onClick={takeDuckForSwim}
+          disabled={failsStandardCheck() || !awake || hunger > 9}
+        >
+          {"👙"} Take for a swim
+        </button>
+      </div>
+
+      <div>
+        <button
+          onClick={() => {
+            squeakDuck()
+            playSqueak()
+          }}
+          disabled={failsStandardCheck() || !awake || hunger > 9}
+        >
+          {"🔈"} Squeak
+        </button>
+      </div>
+
+      <div>
+        <button onClick={killDuck} disabled={failsStandardCheck()}>
+          {"☠️"} KILL
+        </button>
+      </div>
+
+      <h3>MOVE AREA</h3>
+      <div>
+        <select
+          disabled={!belongsToCurrentUser}
+          value={area.id}
+          onChange={handleDuckChangeArea}
+        >
+          {areas.map(area => (
+            <option key={area.id} value={area.id}>
+              {`${areaEmojis[area.name]} ${area.name}`}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   )
 }

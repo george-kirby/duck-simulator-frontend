@@ -1,11 +1,14 @@
 .cards-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  height: 100%;
 }
 
-h3 {
-    position: sticky;
-    margin: auto
+.duck-list > h3 {
+  position: sticky;
+  margin: auto;
+  text-align: center;
+  padding-top: 0.5rem;
 }
