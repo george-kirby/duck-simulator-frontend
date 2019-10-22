@@ -1,0 +1,12 @@
+#login-form-container {
+  position: fixed;
+  top: 30vh;
+  left: 40vw;
+  display: flex;
+}
+
+input {
+    font-size: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+}

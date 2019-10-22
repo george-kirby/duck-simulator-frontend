@@ -31,4 +31,12 @@ const patchDuck = (duck, duckData) => {
   }).then(resp => resp.json())
 }
 
-export default { getDucks, getUsers, getAreas, patchDuck, postDucks }
+const postUser = userData => {
+  return fetch(USERS_URL, {
+    method: "POST",
+    headers: jsonHeaders(),
+    body: JSON.stringify({ user: userData })
+  }).then(resp => resp.json())
+}
+
+export default { getDucks, getUsers, getAreas, patchDuck, postUser, postDucks}
