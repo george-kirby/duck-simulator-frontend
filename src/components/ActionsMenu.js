@@ -20,30 +20,32 @@ const ActionsMenu = ({
   // const handleDuckChangeArea = event => {
   //   setAreaId(event.target.value)
   // }
-
+  const failsStandardCheck = () => {
+    return !belongsToCurrentUser || !alive
+  }
 
   return (
     <div>
       <button
         onClick={feedDuck}
-        disabled={!belongsToCurrentUser || !alive || !awake}
+        disabled={failsStandardCheck() || !awake}
         className={hunger > 9 ? "red" : "normal"}
       >
         Feed
       </button>
-      <button onClick={sleepChange} disabled={!belongsToCurrentUser || !alive}>
+      <button onClick={sleepChange} disabled={failsStandardCheck()}>
         {awake ? "Put to Bed" : "Wake Up"}
       </button>
       <button
         onClick={takeDuckForSwim}
-        disabled={!belongsToCurrentUser || !alive || !awake || hunger > 9}
+        disabled={failsStandardCheck() || !awake || hunger > 9}
       >
         Take for a swim
       </button>
-      <button onClick={squeakDuck} disabled={!belongsToCurrentUser || !alive || !awake || hunger > 9}>
+      <button onClick={squeakDuck} disabled={failsStandardCheck() || !awake || hunger > 9}>
         Squeak
       </button>
-      <button onClick={killDuck} disabled={!belongsToCurrentUser || !alive}>
+      <button onClick={killDuck} disabled={failsStandardCheck()}>
         KILL
       </button>
       <select disabled={!belongsToCurrentUser} value={area.id} onChange={handleDuckChangeArea}>
