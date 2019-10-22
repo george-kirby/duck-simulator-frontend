@@ -6,7 +6,7 @@ const AddDuck = () => {
   const [gender, setGender] = useState("male")
   const [color, setColor] = useState("yellow")
   const [areas, setAreas] = useState([])
-  const [area, setArea] = useState("1")
+  const [area, setArea] = useState("15")
 
   useEffect(() => {
     API.getAreas().then(setAreas)
@@ -23,7 +23,7 @@ const AddDuck = () => {
       gender,
       color,
       area_id: area,
-      user_id: 1
+      user_id: 18
     }
 
     API.postDucks(newDuck).then(console.log)

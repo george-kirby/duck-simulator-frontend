@@ -12,8 +12,9 @@ const postDucks = data =>
   fetch(DUCKS_URL, {
     method: "POST",
     headers: jsonHeaders(),
-    body: JSON.stringify(data)
+    body: JSON.stringify( data )
   })
+  .then(resp => resp.json())
 
 const jsonHeaders = (more = {}) => {
   return {
