@@ -12,7 +12,7 @@ const DuckContainer = ({
   sleepChange,
   squeakDuck,
   killDuck,
-  handleDuckSelection, 
+  handleDuckSelection,
   currentUser
 }) => {
   const background = require("../images/theme/wood-background.jpg")
@@ -23,7 +23,9 @@ const DuckContainer = ({
   }
 
   const filteredDucks = () => {
-    return ducks.filter(duck => !currentUser || duck.user.username === currentUser.username)
+    return ducks.filter(
+      duck => !currentUser || duck.user.username === currentUser.username
+    )
   }
 
   return (
@@ -38,13 +40,15 @@ const DuckContainer = ({
             takeDuckForSwim,
             sleepChange,
             squeakDuck,
-            killDuck, 
+            killDuck,
             currentUser
           }}
           removeCurrentDuck={() => handleDuckSelection(null)}
         />
       ) : (
-        <DuckList {...{ ducks: filteredDucks(), handleDuckSelection, currentUser }} />
+        <DuckList
+          {...{ ducks: filteredDucks(), handleDuckSelection, currentUser }}
+        />
       )}
     </div>
   )

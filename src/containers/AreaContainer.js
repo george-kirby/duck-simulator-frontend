@@ -6,14 +6,15 @@ const AreaContainer = ({
   areas,
   currentArea,
   setCurrentAreaId,
-  handleClickAreaDuck
+  handleClickAreaDuck,
+  currentDuck
 }) => {
   return (
     <div>
       {currentArea ? (
         <AreaDetails
           removeCurrentArea={() => setCurrentAreaId(null)}
-          {...{ ...currentArea, handleClickAreaDuck }}
+          {...{ ...currentArea, handleClickAreaDuck, currentDuck }}
         />
       ) : (
         <AreaList {...{ areas, setCurrentAreaId }} />

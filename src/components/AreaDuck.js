@@ -3,7 +3,14 @@ import "../stylesheets/AreaDuck.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
 
-const AreaDuck = ({ id, name, color, handleClickAreaDuck, mood }) => {
+const AreaDuck = ({
+  id,
+  name,
+  color,
+  handleClickAreaDuck,
+  mood,
+  currentDuck
+}) => {
   const [duckNameClass, setDuckNameClass] = useState("hidden")
 
   const displayImage = Helpers.displayImage(
@@ -20,6 +27,11 @@ const AreaDuck = ({ id, name, color, handleClickAreaDuck, mood }) => {
     setDuckNameClass("hidden")
   }
 
+  const isCurrentDuck = () => {
+    console.log(currentDuck)
+    return currentDuck.id === id
+  }
+
   return (
     <div className="duck-container">
       <div className={duckNameClass}>{name}</div>
@@ -30,6 +42,7 @@ const AreaDuck = ({ id, name, color, handleClickAreaDuck, mood }) => {
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
         onClick={() => handleClickAreaDuck(id)}
+        className={isCurrentDuck ? "duck-selected" : ""}
       ></img>
     </div>
   )
