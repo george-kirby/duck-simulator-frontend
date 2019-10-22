@@ -61,9 +61,8 @@ const App = props => {
         </Route>
         {/* {currentUser ? <Main /> : <Login/>} */}
         <Route
-          exact
-          path="/add-duck"
-          component={routerProps => <AddDuck {...routerProps} />}
+          exact path="/add-duck"
+          component={currentUser ? routerProps => <AddDuck {...routerProps} /> : routerProps => <Redirect to="/" />}
         />
         <Route exact path="/login">
           <Login {...{ handleLogin }} />
