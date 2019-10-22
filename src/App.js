@@ -21,13 +21,12 @@ const App = props => {
     event.preventDefault()
     const givenUsername = event.target.username.value
     const findCurrentUser = users.find(user => user.username === givenUsername)
-    if(findCurrentUser) {
+    if (findCurrentUser) {
       setCurrentUser(findCurrentUser)
     } else {
-      API.postUser({username: givenUsername})
-      .then(setCurrentUser)
+      API.postUser({ username: givenUsername }).then(setCurrentUser)
     }
-    props.history.push("/")  
+    props.history.push("/")
   }
 
   const handleLogout = () => {
@@ -40,19 +39,29 @@ const App = props => {
   }, [])
 
   return (
-      <div>
+    <div>
       {currentUser ? (
         <nav className="navbar">
-          <Link to="/">HOME</Link> | <Link to="/add-duck">ADD DUCK</Link> |{" "}
+          <Link to="/">HOME</Link>
+          <Link to="/add-duck">ADD DUCK</Link>
           <div>{`Logged in as ${currentUser.username}`}</div>
-          <Link to="/login" onClick={handleLogout}>LOG OUT</Link>
+          <Link to="/login" onClick={handleLogout}>
+            LOG OUT
+          </Link>
         </nav>
-      ) : <Link to="/login">LOG IN</Link>
-      }
+      ) : (
+        <nav><Link to="/login" id="login-link">LOG IN</Link></nav>
+      )}
       <Switch>
-        <Route exact path="/" ><Main /></Route>
-          {/* {currentUser ? <Main /> : <Login/>} */}
-      <Route exact path="/add-duck" component={routerProps => <AddDuck {...routerProps} />} />
+        <Route exact path="/">
+          <Main />
+        </Route>
+        {/* {currentUser ? <Main /> : <Login/>} */}
+        <Route
+          exact
+          path="/add-duck"
+          component={routerProps => <AddDuck {...routerProps} />}
+        />
         <Route exact path="/login">
           <Login {...{ handleLogin }} />
         </Route>
@@ -60,7 +69,7 @@ const App = props => {
           <Redirect to="/" />
         </Route> */}
       </Switch>
-      </div>
+    </div>
   )
 }
 

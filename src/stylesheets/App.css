@@ -9,7 +9,7 @@ body {
   height: 2rem;
 }
 
-nav > a {
+nav > a, nav > div {
   min-width: 5rem;
   display: block;
   text-align: center;
