@@ -114,7 +114,7 @@ const Main = ({ currentUser }) => {
       <div className="split right">
         <AreaContainer
           currentArea={findCurrentArea()}
-          {...{ areas, setCurrentAreaId, handleClickAreaDuck }}
+          {...{ areas, setCurrentAreaId, handleClickAreaDuck, currentDuck }}
         />
       </div>
     </div>

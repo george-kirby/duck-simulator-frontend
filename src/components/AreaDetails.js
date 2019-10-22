@@ -8,7 +8,8 @@ const AreaDetails = ({
   image_url,
   removeCurrentArea,
   ducks,
-  handleClickAreaDuck
+  handleClickAreaDuck,
+  currentDuck
 }) => {
   const backgroundImg = Helpers.displayImage(
     "areas",
@@ -26,7 +27,7 @@ const AreaDetails = ({
       {/* <div className="area-details"> */}
       {name}
       <button onClick={removeCurrentArea}>Back to Area List</button>
-      <AreaDuckList {...{ ducks, handleClickAreaDuck }} />
+      <AreaDuckList {...{ ducks, handleClickAreaDuck, currentDuck }} />
     </div>
   )
 }
