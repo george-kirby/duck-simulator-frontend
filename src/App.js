@@ -50,7 +50,10 @@ const App = props => {
           </Link>
         </nav>
       ) : (
-        <nav><Link to="/login" id="login-link">LOG IN</Link></nav>
+        <nav className="navbar">
+          <Link to="/">HOME</Link>
+          <Link to="/login" id="login-link">LOG IN</Link>
+        </nav>
       )}
       <Switch>
         <Route exact path="/">
