@@ -12,7 +12,8 @@ const ActionsMenu = ({
   killDuck,
   sleepChange,
   squeakDuck,
-  takeDuckForSwim
+  takeDuckForSwim, 
+  belongsToCurrentUser
 }) => {
   // const [areaId, setAreaId] = useState(area.id)
 
@@ -20,31 +21,32 @@ const ActionsMenu = ({
   //   setAreaId(event.target.value)
   // }
 
+
   return (
     <div>
       <button
         onClick={feedDuck}
-        disabled={!alive || !awake}
+        disabled={!belongsToCurrentUser || !alive || !awake}
         className={hunger > 9 ? "red" : "normal"}
       >
         Feed
       </button>
-      <button onClick={sleepChange} disabled={!alive}>
+      <button onClick={sleepChange} disabled={!belongsToCurrentUser || !alive}>
         {awake ? "Put to Bed" : "Wake Up"}
       </button>
       <button
         onClick={takeDuckForSwim}
-        disabled={!alive || !awake || hunger > 9}
+        disabled={!belongsToCurrentUser || !alive || !awake || hunger > 9}
       >
         Take for a swim
       </button>
-      <button onClick={squeakDuck} disabled={!alive || !awake || hunger > 9}>
+      <button onClick={squeakDuck} disabled={!belongsToCurrentUser || !alive || !awake || hunger > 9}>
         Squeak
       </button>
-      <button onClick={killDuck} disabled={!alive}>
+      <button onClick={killDuck} disabled={!belongsToCurrentUser || !alive}>
         KILL
       </button>
-      <select value={area.id} onChange={handleDuckChangeArea}>
+      <select disabled={!belongsToCurrentUser} value={area.id} onChange={handleDuckChangeArea}>
         {areas.map(area => (
           <option key={area.id} value={area.id}>
             {area.name}

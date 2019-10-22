@@ -12,7 +12,8 @@ const DuckContainer = ({
   sleepChange,
   squeakDuck,
   killDuck,
-  handleDuckSelection
+  handleDuckSelection, 
+  currentUser
 }) => {
   const background = require("../images/theme/wood-background.jpg")
 
@@ -33,7 +34,8 @@ const DuckContainer = ({
             takeDuckForSwim,
             sleepChange,
             squeakDuck,
-            killDuck
+            killDuck, 
+            currentUser
           }}
           removeCurrentDuck={() => handleDuckSelection(null)}
         />

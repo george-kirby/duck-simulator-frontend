@@ -54,7 +54,7 @@ const App = props => {
       )}
       <Switch>
         <Route exact path="/">
-          <Main />
+          <Main {...{currentUser}} />
         </Route>
         {/* {currentUser ? <Main /> : <Login/>} */}
         <Route

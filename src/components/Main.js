@@ -5,7 +5,7 @@ import AreaContainer from "../containers/AreaContainer"
 import API from "../adapters/API"
 import Helpers from "../helpers/Helpers"
 
-const Main = () => {
+const Main = ({currentUser}) => {
   const [ducks, setDucks] = useState([])
   const [areas, setAreas] = useState([])
   const [currentDuck, setCurrentDuck] = useState(null)
@@ -103,7 +103,8 @@ const Main = () => {
             currentDuck,
             handleDuckSelection,
             handleDuckChangeArea,
-            areas
+            areas, 
+            currentUser
           }}
           feedDuck={() => feedDuck(currentDuck)}
           takeDuckForSwim={() => takeDuckForSwim(currentDuck)}

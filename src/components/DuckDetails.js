@@ -21,13 +21,19 @@ const DuckDetails = ({
   sleepChange,
   squeakDuck,
   killDuck,
-  removeCurrentDuck
+  removeCurrentDuck, 
+  currentUser
 }) => {
+
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standard,
     `${color}-${Images.ducks[mood]}`
   )
+
+  const belongsToCurrentUser = () => {
+    return currentUser ? currentUser.username === user.username : false
+  }
 
   return (
     <div id="duck-details">
@@ -48,7 +54,7 @@ const DuckDetails = ({
       </div>
       <div>
         ACTION MENU
-        <ActionsMenu
+        <ActionsMenu belongsToCurrentUser={belongsToCurrentUser()}
           {...{
             alive,
             awake,
