@@ -12,7 +12,7 @@ const ActionsMenu = ({
   killDuck,
   sleepChange,
   squeakDuck,
-  takeDuckForSwim, 
+  takeDuckForSwim,
   belongsToCurrentUser
 }) => {
   // const [areaId, setAreaId] = useState(area.id)
@@ -22,6 +22,12 @@ const ActionsMenu = ({
   // }
   const failsStandardCheck = () => {
     return !belongsToCurrentUser || !alive
+  }
+
+  const audio = new Audio(require("../audio/duck-quack.mp3"))
+
+  const playSqueak = () => {
+    audio.play()
   }
 
   return (
@@ -42,13 +48,23 @@ const ActionsMenu = ({
       >
         Take for a swim
       </button>
-      <button onClick={squeakDuck} disabled={failsStandardCheck() || !awake || hunger > 9}>
+      <button
+        onClick={() => {
+          squeakDuck()
+          playSqueak()
+        }}
+        disabled={failsStandardCheck() || !awake || hunger > 9}
+      >
         Squeak
       </button>
       <button onClick={killDuck} disabled={failsStandardCheck()}>
         KILL
       </button>
-      <select disabled={!belongsToCurrentUser} value={area.id} onChange={handleDuckChangeArea}>
+      <select
+        disabled={!belongsToCurrentUser}
+        value={area.id}
+        onChange={handleDuckChangeArea}
+      >
         {areas.map(area => (
           <option key={area.id} value={area.id}>
             {area.name}

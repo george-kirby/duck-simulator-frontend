@@ -33,6 +33,8 @@ const Main = ({ currentUser }) => {
   }
 
   const squeakDuck = duck => {
+    // let audio = require("../audio/duck-quack.mp3")
+    // audio.play()
     // duck emits happy/sad/angry noise depending on mood
     if (duck.alive) {
       console.log(`${duck.mood} noises...`)
