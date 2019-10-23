@@ -51,7 +51,7 @@ const DuckDetails = ({
           {name} {gender === "female" ? "♀️" : "♂️"}
         </strong>
         <p>Mood: {mood}</p>
-        <p className={hunger > 9 ? "red" : "normal"}>Hunger: {hunger}</p>
+        <p className={hunger > 9 ? "red" : "normal"}>Hunger: <span id="hunger-value">{hunger}</span></p>
         {/* <p>Owner: {user.username}</p>
         <p>Area: {area.name}</p> */}
         <img src={displayImage} alt={name} width="50%" />

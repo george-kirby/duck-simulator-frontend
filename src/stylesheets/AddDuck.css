@@ -1,5 +1,4 @@
 .add-duck-form-container {
-  margin-top: 1rem;
   background-color: #ffe5cc;
   display: flex;
   flex-direction: column;
@@ -7,22 +6,23 @@
 }
 
 .add-duck-form-container div {
-  font-size: 22px;
+  font-size: 19px;
   padding: 1rem 0;
 }
 
-.add-duck-form-container input,
 .add-duck-form-container select {
   margin-left: 1rem;
   font-size: inherit;
   border-radius: 0.5rem;
+  font-family: "IM Fell DW Pica SC", serif;
+  text-transform: uppercase;
 }
 
-.duck-images {
+.add-duck-form-container .duck-images {
   margin-top: 2rem;
   display: flex;
 }
 
-.duck-images > img {
-  width: 18rem;
+.add-duck-form-container .duck-images > img {
+  width: 14rem;
 }

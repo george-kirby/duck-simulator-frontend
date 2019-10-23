@@ -25,3 +25,7 @@
 .duck-name-styling {
   font-size: 1.5rem;
 }
+
+span#hunger-value {
+    font-family: fantasy;
+}

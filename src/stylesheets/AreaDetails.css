@@ -16,6 +16,8 @@
 
 .area-details-header > img {
   margin-right: 23rem;
+  margin-left: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 .area-details-header > img:hover {

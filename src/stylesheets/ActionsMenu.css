@@ -8,6 +8,8 @@
 
 .actions-list button,
 select {
+  font-family: 'IM Fell DW Pica SC', serif;
+  text-transform: uppercase;
   font-size: 14px;
   margin: 0.2rem;
   border-radius: 0.3rem;

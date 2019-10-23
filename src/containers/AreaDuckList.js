@@ -3,11 +3,11 @@ import "../stylesheets/AreaDuckList.css"
 import AreaDuck from "../components/AreaDuck"
 
 const AreaDuckList = ({ ducks, handleClickAreaDuck, currentDuck }) => {
-  const maxDucks = ducks.slice(0, 8)
+  // const maxDucks = ducks.slice(0, 8)
 
   return (
     <div className="area-duck flex-container">
-      {maxDucks.map(duck => (
+      {ducks.map(duck => (
         <AreaDuck
           key={duck.id}
           {...{ ...duck, handleClickAreaDuck, currentDuck }}
