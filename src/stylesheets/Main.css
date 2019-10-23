@@ -12,7 +12,7 @@
 }
 
 .ducks-container {
-  width: 20%;
+  width: 15rem;
   border: 2px solid #944700;
 }
 
@@ -21,6 +21,6 @@
 }
 
 .areas-container {
-  width: 80%;
+  width: 55rem;
   background-position: center;
 }

@@ -3,7 +3,7 @@ import Helpers from "../helpers/Helpers"
 import API from "../adapters/API"
 import "../stylesheets/AddDuck.css"
 
-const AddDuck = ({ currentUser, history }) => {
+const AddDuck = ({ currentUser, history, setCurrentDuck, setCurrentAreaId }) => {
   const [name, setName] = useState("")
   const [gender, setGender] = useState("male")
   const [color, setColor] = useState("yellow")
@@ -32,7 +32,10 @@ const AddDuck = ({ currentUser, history }) => {
       user_id: currentUser.id
     }
 
-    API.postDucks(newDuck) //.then(handleNewDuck)
+    API.postDucks(newDuck).then(duck => {
+      setCurrentDuck(duck)
+      setCurrentAreaId(duck.area.id)
+    })
     history.push("/")
   }
 

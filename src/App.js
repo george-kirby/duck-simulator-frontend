@@ -17,6 +17,8 @@ const App = props => {
   const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   // const [newDuck, setNewDuck] = useState(null)
+  const [currentDuck, setCurrentDuck] = useState(null)
+  const [currentAreaId, setCurrentAreaId] = useState(null)
 
   useEffect(() => {
     API.getUsers().then(setUsers)
@@ -39,7 +41,7 @@ const App = props => {
     console.log("logging out")
   }
 
-  // const handleNewDuck = duck => setNewDuck(duck)
+  // const handleNewDuck = duck => setCurrentDuck(duck)
 
   return (
     <div>
@@ -62,7 +64,7 @@ const App = props => {
       )}
       <Switch>
         <Route exact path="/">
-          <Main {...{ currentUser }} />
+          <Main {...{ currentUser, currentDuck, setCurrentDuck, currentAreaId, setCurrentAreaId }} />
         </Route>
         {/* {currentUser ? <Main /> : <Login/>} */}
         <Route
@@ -70,7 +72,7 @@ const App = props => {
           path="/add-duck"
           component={
             currentUser
-              ? routerProps => <AddDuck {...{ ...routerProps, currentUser }} />
+              ? routerProps => <AddDuck {...{ ...routerProps, currentUser, setCurrentDuck, setCurrentAreaId }} />
               : routerProps => <Redirect to="/" />
           }
         />
