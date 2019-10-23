@@ -1,5 +1,5 @@
 #duck-details {
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .red {
@@ -8,13 +8,18 @@
 
 .duck-details-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.duck-details-header > button {
-  margin: 6%;
+.duck-details-header > img {
+  /* margin: 6%; */
   border-radius: 0.3rem;
-  /* border-color: brown; */
+  /* background-color: #ffbe4d; */
+}
+
+.duck-details-header > img:hover {
+  box-shadow: 0px 0px 5px 2px gray;
 }
 
 .duck-name-styling {

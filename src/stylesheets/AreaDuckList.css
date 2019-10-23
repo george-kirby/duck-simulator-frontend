@@ -1,7 +1,7 @@
 .area-duck {
   margin: auto;
   width: 70%;
-  margin-top: 31%;
+  padding-top: 31%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

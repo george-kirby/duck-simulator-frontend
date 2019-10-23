@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import "../stylesheets/AreaDuck.css"
 import Helpers from "../helpers/Helpers"
 import Images from "../helpers/ImagePaths"
@@ -11,8 +11,6 @@ const AreaDuck = ({
   mood,
   currentDuck
 }) => {
-  const [duckNameClass, setDuckNameClass] = useState("hidden")
-
   const displayImage = Helpers.displayImage(
     "duck-drawings",
     Images.ducks.standard,

@@ -1,29 +1,30 @@
 .duck-card {
-    /* cursor: pointer; */
-    width: 5rem;
-    height: 7rem;
-    margin: 1rem auto;
-    position: relative;
-    border-radius: 0.5rem;
-    border: solid #9e6262 0.1rem;
-    padding: 0 0.5rem;
-    display: grid;
-    grid-template-rows: 80% 20%;
-    background: white;
-    align-items: center;
-    transition: box-shadow 0.5s ease-in;
+  /* cursor: pointer; */
+  width: 5rem;
+  height: 6rem;
+  margin: 1rem auto;
+  position: relative;
+  border-radius: 0.5rem;
+  border: solid #9e6262 0.1rem;
+  padding: 0 0.5rem;
+  display: grid;
+  grid-template-rows: 80% 20%;
+  background: white;
+  align-items: center;
+  transition: box-shadow 0.5s ease-in;
 }
 
 .duck-card:hover {
-    box-shadow: 0px 0px 5px 2px #a52a2a
+  box-shadow: 0px 0px 5px 2px #a52a2a;
 }
 
 .duck-card > img {
-    width: 100%;
-    margin-left: 10%;
+  width: 100%;
+  margin-left: 10%;
 }
 
 .duck-card > div {
-    margin: 1rem auto;
-    z-index: 10;
+  margin: 1rem auto;
+  text-align: center;
+  z-index: 10;
 }
