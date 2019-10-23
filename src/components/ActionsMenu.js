@@ -1,4 +1,5 @@
 import React from "react"
+import Helpers from "../helpers/Helpers"
 import "../stylesheets/ActionsMenu.css"
 
 const ActionsMenu = ({
@@ -28,12 +29,6 @@ const ActionsMenu = ({
 
   const playSqueak = () => {
     audio.play()
-  }
-
-  const areaEmojis = {
-    "Flatiron Pond": "🏡",
-    "Green Park Pond": "🌳",
-    "Hell Pond": "🔥"
   }
 
   return (
@@ -90,7 +85,7 @@ const ActionsMenu = ({
         >
           {areas.map(area => (
             <option key={area.id} value={area.id}>
-              {`${areaEmojis[area.name]} ${area.name}`}
+              {`${Helpers.areaEmojis[area.name]} ${area.name}`}
             </option>
           ))}
         </select>
