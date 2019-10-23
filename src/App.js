@@ -20,7 +20,7 @@ const App = props => {
 
   useEffect(() => {
     API.getUsers().then(setUsers)
-  }, [])
+  }, [currentUser])
 
   const handleLogin = event => {
     event.preventDefault()
