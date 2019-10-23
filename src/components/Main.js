@@ -5,17 +5,17 @@ import AreaContainer from "../containers/AreaContainer"
 import API from "../adapters/API"
 import Helpers from "../helpers/Helpers"
 
-const Main = ({ currentUser }) => {
+const Main = ({ currentUser, currentDuck, setCurrentDuck, currentAreaId, setCurrentAreaId }) => {
   const [ducks, setDucks] = useState([])
   const [areas, setAreas] = useState([])
-  const [currentDuck, setCurrentDuck] = useState(null)
-  const [currentAreaId, setCurrentAreaId] = useState(null)
 
   useEffect(() => {
     API.getDucks().then(ducks => {
       API.getAreas().then(areas => {
         setDucks(ducks)
         setAreas(areas)
+        // setCurrentDuck(newDuck)
+        // console.log(`a new duck was created: ${newDuck}`)
       })
     })
   }, [currentDuck])
