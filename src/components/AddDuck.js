@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
+import Helpers from "../helpers/Helpers"
 import API from "../adapters/API"
+import "../stylesheets/AddDuck.css"
 
-const AddDuck = ({ currentUser, history, handleNewDuck }) => {
+const AddDuck = ({ currentUser, history }) => {
   const [name, setName] = useState("")
   const [gender, setGender] = useState("male")
   const [color, setColor] = useState("yellow")
@@ -34,45 +36,73 @@ const AddDuck = ({ currentUser, history, handleNewDuck }) => {
   }
 
   return (
-    <div>
+    <div className="add-duck-form-container">
       <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            placeholder="Name ... "
-            onChange={handleNameChange}
-            value={name}
-          />
-        </label>
-        <label>
-          Gender
-          <select value={gender} onChange={handleGenderChange}>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </label>
-        <label>
-          Duck Color
-          <select value={color} onChange={handleColorChange}>
-            <option value="yellow">Yellow</option>
-            <option value="blue">Blue</option>
-            <option value="red">Red</option>
-            <option value="pink">Pink</option>
-          </select>
-        </label>
-        <label>
-          Area
-          <select value={area} onChange={handleAreaChange}>
-            {areas.map(area => (
-              <option key={area.id} value={area.id}>
-                {area.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <input type="submit" value="Create Duck" />
+        <div>
+          <label>
+            Name:
+            <input
+              type="text"
+              placeholder="Name ... "
+              onChange={handleNameChange}
+              value={name}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Gender
+            <select value={gender} onChange={handleGenderChange}>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>
+            Duck Color
+            <select value={color} onChange={handleColorChange}>
+              <option value="yellow">Yellow</option>
+              <option value="blue">Blue</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>
+            Area
+            <select value={area} onChange={handleAreaChange}>
+              {areas.map(area => (
+                <option key={area.id} value={area.id}>
+                  {`${Helpers.areaEmojis[area.name]} ${area.name}`}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div>
+          <input type="submit" value="Create Duck" />
+        </div>
       </form>
+      <div className="duck-images">
+        <img
+          src={require("../images/duck-drawings/football-duck.png")}
+          alt="football-duck"
+        />
+        <img
+          src={require("../images/duck-drawings/french-duck.png")}
+          alt="french-duck"
+        />
+        <img
+          src={require("../images/duck-drawings/party-duck.png")}
+          alt="party-duck"
+        />
+        <img
+          src={require("../images/duck-drawings/smart-duck.png")}
+          alt="smart-duck"
+        />
+      </div>
     </div>
   )
 }

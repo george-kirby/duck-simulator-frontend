@@ -5,8 +5,8 @@
   display: flex;
 }
 
-input {
-    font-size: 2rem;
-    padding: 1rem;
-    margin: 1rem;
+#login-form-container input {
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem;
 }

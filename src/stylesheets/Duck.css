@@ -25,5 +25,6 @@
 
 .duck-card > div {
   margin: 1rem auto;
+  text-align: center;
   z-index: 10;
 }
