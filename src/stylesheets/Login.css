@@ -1,12 +1,21 @@
+.login-container {
+  background-color: #ffe5cc;
+}
+
 #login-form-container {
-  position: fixed;
+  min-width: 73rem;
   top: 30vh;
   left: 40vw;
   display: flex;
+  padding-top: 11rem;
+  justify-content: center;
 }
 
-#login-form-container input {
-  font-size: 2rem;
-  padding: 1rem;
-  margin: 1rem;
+.duck-images {
+  margin-top: 12rem;
+  display: flex;
+}
+
+.duck-images > img {
+  width: 14rem;
 }

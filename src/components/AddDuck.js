@@ -41,17 +41,12 @@ const AddDuck = ({ currentUser, history }) => {
         <div>
           <label>
             Name:
-            <input
-              type="text"
-              placeholder="Name ... "
-              onChange={handleNameChange}
-              value={name}
-            />
+            <input type="text" onChange={handleNameChange} value={name} />
           </label>
         </div>
         <div>
           <label>
-            Gender
+            Gender:
             <select value={gender} onChange={handleGenderChange}>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -60,7 +55,7 @@ const AddDuck = ({ currentUser, history }) => {
         </div>
         <div>
           <label>
-            Duck Color
+            Duck Color:
             <select value={color} onChange={handleColorChange}>
               <option value="yellow">Yellow</option>
               <option value="blue">Blue</option>
@@ -71,7 +66,7 @@ const AddDuck = ({ currentUser, history }) => {
         </div>
         <div>
           <label>
-            Area
+            Area:
             <select value={area} onChange={handleAreaChange}>
               {areas.map(area => (
                 <option key={area.id} value={area.id}>
@@ -82,7 +77,7 @@ const AddDuck = ({ currentUser, history }) => {
           </label>
         </div>
         <div>
-          <input type="submit" value="Create Duck" />
+          <input className="submit-button" type="submit" value="Create Duck" />
         </div>
       </form>
       <div className="duck-images">
@@ -100,6 +95,10 @@ const AddDuck = ({ currentUser, history }) => {
         />
         <img
           src={require("../images/duck-drawings/smart-duck.png")}
+          alt="smart-duck"
+        />
+        <img
+          src={require("../images/duck-drawings/lawyer-duck.png")}
           alt="smart-duck"
         />
       </div>
