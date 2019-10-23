@@ -8,7 +8,7 @@ const AddDuck = ({ currentUser, history, setCurrentDuck, setCurrentAreaId }) => 
   const [gender, setGender] = useState("male")
   const [color, setColor] = useState("yellow")
   const [areas, setAreas] = useState([])
-  const [area, setArea] = useState("15")
+  const [area, setArea] = useState("")
 
   useEffect(() => {
     API.getAreas().then(areas => {
@@ -16,6 +16,7 @@ const AddDuck = ({ currentUser, history, setCurrentDuck, setCurrentAreaId }) => 
       setArea(areas[0].id)
     })
   }, [])
+
   const handleNameChange = event => setName(event.target.value)
   const handleGenderChange = event => setGender(event.target.value)
   const handleColorChange = event => setColor(event.target.value)
@@ -44,7 +45,12 @@ const AddDuck = ({ currentUser, history, setCurrentDuck, setCurrentAreaId }) => 
         <div>
           <label>
             Name:
-            <input type="text" onChange={handleNameChange} value={name} />
+            <input
+              type="text"
+              onChange={handleNameChange}
+              value={name}
+              maxLength="10"
+            />
           </label>
         </div>
         <div>
