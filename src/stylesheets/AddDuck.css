@@ -7,22 +7,21 @@
 }
 
 .add-duck-form-container div {
-  font-size: 22px;
+  font-size: 19px;
   padding: 1rem 0;
 }
 
-.add-duck-form-container input,
 .add-duck-form-container select {
   margin-left: 1rem;
   font-size: inherit;
   border-radius: 0.5rem;
 }
 
-.duck-images {
+.add-duck-form-container .duck-images {
   margin-top: 2rem;
   display: flex;
 }
 
-.duck-images > img {
-  width: 18rem;
+.add-duck-form-container .duck-images > img {
+  width: 14rem;
 }

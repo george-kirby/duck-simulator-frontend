@@ -33,9 +33,6 @@ const Main = ({ currentUser }) => {
   }
 
   const squeakDuck = duck => {
-    // let audio = require("../audio/duck-quack.mp3")
-    // audio.play()
-    // duck emits happy/sad/angry noise depending on mood
     if (duck.alive) {
       console.log(`${duck.mood} noises...`)
     } else {
@@ -78,7 +75,6 @@ const Main = ({ currentUser }) => {
     if (duck === null) {
       setCurrentAreaId(null)
     } else {
-      // let selectedArea = areas.find(area => area.id === duck.area.id)
       setCurrentAreaId(duck.area.id)
     }
   }
