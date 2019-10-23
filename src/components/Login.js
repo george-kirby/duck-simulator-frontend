@@ -4,6 +4,8 @@ import "../stylesheets/Login.css"
 function Login({ handleLogin }) {
   return (
     <div className="login-container">
+        <div>Welcome to Duck Simulator</div>
+        <div>Enter your name to start</div>
       <div id="login-form-container">
         <form onSubmit={handleLogin}>
           <input type="text" name="username" placeholder="Your username" />

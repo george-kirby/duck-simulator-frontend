@@ -2,6 +2,12 @@
   background-color: #ffe5cc;
 }
 
+.login-container > div {
+  font-size: x-large;
+  padding-top: 1rem;
+  text-align: center;
+}
+
 #login-form-container {
   min-width: 73rem;
   top: 30vh;
