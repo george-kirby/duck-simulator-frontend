@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+  font-family: 'IM Fell DW Pica SC', serif;
+  text-transform: uppercase;
   background-color: #86be0e;
   max-width: 73rem;
   display: flex;
