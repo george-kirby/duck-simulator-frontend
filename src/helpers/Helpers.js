@@ -15,7 +15,10 @@ const displayImage = (folder, defaultImage, image) => {
 const areaEmojis = {
   "Flatiron Pond": "🏡",
   "Green Park Pond": "🌳",
-  "Hell Pond": "🔥"
+  "Hell Pond": "🔥",
+  "Space Pond": "👽",
+  Beach: "🌞",
+  "Frozen Lake": "☃️"
 }
 
 export default { increaseToMax10, displayImage, areaEmojis }
