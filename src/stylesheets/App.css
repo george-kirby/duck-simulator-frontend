@@ -2,12 +2,17 @@ body {
   font-family: 'IM Fell DW Pica SC', serif;
   text-transform: uppercase;
   background-color: #86be0e;
-  max-width: 73rem;
   display: flex;
   margin: auto;
+}
+
+#root {
+  max-width: 73rem;
   border-left: solid;
   border-right: solid;
   border-color: #1fa00e;
+  display: flex;
+  margin: auto;
 }
 
 .navbar {
@@ -35,4 +40,17 @@ nav > a:hover {
 }
 nav > a:last-child {
   margin-left: auto;
+}
+
+input {
+  font-size: 19px;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.submit-button {
+  background-color: #1fa00e;
+  color: white;
+  margin: auto;
 }
